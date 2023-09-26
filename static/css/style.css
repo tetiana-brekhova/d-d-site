@@ -1,0 +1,49 @@
+* {
+    text-align: center;
+}
+
+body {
+    background-image:  linear-gradient(
+    to left top,
+    rgba(25, 25, 112, 0.7),
+    rgba(250, 215, 0, 0.5),
+    rgba(139, 0, 0, 0.7)),
+    url(" ../img/bgmap.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.flex{
+    background-color: rgba(200, 200, 200, 0.6);
+}
+
+.overflow-x-auto{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.classes{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+. master-guid-link{
+    grid-column: 1 / 2;
+    grid-row: 1;
+}
+
+. player-guid-link{
+    grid-column: 2 / 2;
+    grid-row: 1;
+}
+
+.chat-link{
+}
+
+.section-image{
+    max-width: 400px;
+    height: 400px;
+    object-fit: scale-down;
+    filter: drop-shadow(20px 20px 10px black);
+}
+

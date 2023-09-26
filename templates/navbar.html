@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <img src="/img/dice.png" width="40" height="40">
+      {% load static %}
+      <img src="{% static 'img/dice.png' %}" width="40" height="40">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -13,12 +14,12 @@
             For players
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">How to create your first character</a></li>
-            <li><a class="dropdown-item" href="#">Races</a></li>
-            <li><a class="dropdown-item" href="#">Classes</a></li>
-            <li><a class="dropdown-item" href="#">Personality</a></li>
-            <li><a class="dropdown-item" href="#">Equipment</a></li>
-            <li><a class="dropdown-item" href="#">How to use magic</a></li>
+            <li><a class="dropdown-item" href="{{ '/usersguid/charactermaker' }}">Character creator</a></li>
+            <li><a class="dropdown-item" href="{{ '/usersguid/races' }} ">Races</a></li>
+            <li><a class="dropdown-item" href="{{ '/usersguid/classes' }}">Classes</a></li>
+            <li><a class="dropdown-item" href="{{ '/usersguid/personality' }}">Personality</a></li>
+            <li><a class="dropdown-item" href="{{ '/usersguid/equipment' }}">Equipment</a></li>
+            <li><a class="dropdown-item" href="{{ '/usersguid/magic' }}">How to use magic</a></li>
           </ul>
         </li>
 
@@ -27,10 +28,10 @@
             For Masters
           </a>
           <ul class="dropdown-menu">
-<!--            <li><a class="dropdown-item" href="#">Magic Items</a></li>-->
-<!--            <li><a class="dropdown-item" href="#">Character State</a></li>-->
-<!--            <li><a class="dropdown-item" href="#">Maps</a></li>-->
-
+            <li><a class="dropdown-item" href="#">Magic Items</a></li>
+            <li><a class="dropdown-item" href="#">Character State</a></li>
+            <li><a class="dropdown-item" href="#">Maps</a></li>
+            <li><a class="dropdown-item" href="#">Adventures</a></li>
           </ul>
         </li>
 
@@ -43,26 +44,36 @@
         </li>
 
       </ul>
+
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+
     </div>
 
-    <div class="collapse navbar-collapse" id="navbarLogin">
-      {% if user.is_authenticated %}
-        <li class="nav-item ">
-          <a class="nav-link " href="#">Logout</a>
-        </li>
-      {% else %}
-        <li class="nav-item ">
-          <a class="nav-link" href="#">Login</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">LogUp</a>
-        </li>
-      {% endif %}
+    <div class="collapse navbar-collapse" >
+      <ul class="navbar-nav">
+        {% if user.is_authenticated %}
+<!--          <li class="nav-item p-2 offset-lg-7">-->
+<!--            <a class="nav-link text-light" href="{{ '/auth/profile/' }}">My profile</a>-->
+<!--          </li>-->
+          <li class="nav-item p-2 offset-lg-7">
+            <a class="nav-link text-light" href="{{ '/auth/logout/' }}">Logout</a>
+          </li>
+        {% else %}
+          <li class="nav-item ">
+            <a class="nav-link text-light" href="{{ '/auth/login/' }}">Login</a>
+          </li>
+          <li>
+            <p>|</p>
+          </li>
+          <li>
+            <a class="nav-link text-light" href="{{ '/auth/registration/' }}">LogUp</a>
+          </li>
+        {% endif %}
+      </ul>
     </div>
+
   </div>
 </nav>
