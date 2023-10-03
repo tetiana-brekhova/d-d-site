@@ -9,117 +9,120 @@
     <div class="flex items-center justify-between px-6 py-3">
       <h2 class="section-name text-gray"> Choose your rase: </h2>
         <div class="classes overflow-x-auto">
-
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/races/aarakocra.png' %}"></a>
-            <a href=#> <h3> Aarakocra </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/races/aasimar.png' %}"></a>
-            <a href=#> <h3> Aasimar </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/races/bugbear.png' %}"></a>
-            <a href=#> <h3> Bugbear </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/races/centaur.png' %}"></a>
-            <a href=#> <h3> Centaur </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/races/changeling.png' %}"></a>
-            <a href=#> <h3> Changeling </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/races/dragonborn.png' %}"></a>
-            <a href=#> <h3> Dragonborn </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/races/dwarf.png' %}"></a>
-            <a href=#> <h3> Dwarf </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/races/elf.png' %}"></a>
-            <a href=#> <h3> Elf </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/races/firbolg.png' %}"></a>
-            <a href=#> <h3> Firbolg </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/races/Genasi.png' %}"></a>
-            <a href=#> <h3> Genasi </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/races/giff.png' %}"></a>
-            <a href=#> <h3> Giff </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/races/gith.png' %}"></a>
-            <a href=#> <h3> Gith (gtihyanki and githzerai)</h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/races/gnome.png' %}"></a>
-            <a href=#> <h3> Gnome </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/races/goliath.png' %}"></a>
-            <a href=#> <h3> Goliath </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/races/half-elf.png' %}"></a>
-            <a href=#> <h3> Half-elf </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/races/half-orc.png' %}"></a>
-            <a href=#> <h3> Half-Orc </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/races/halfling.png' %}"></a>
-            <a href=#> <h3> Halfling </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/races/Harengon.png' %}"></a>
-            <a href=#> <h3> Harengon </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/races/human.png' %}"></a>
-            <a href=#> <h3> Human </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/races/goliath.png' %}"></a>
-            <a href=#> <h3> Goliath </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/races/half-elf.png' %}"></a>
-            <a href=#> <h3> Half-elf </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/races/half-orc.png' %}"></a>
-            <a href=#> <h3> Half-Orc </h3> </a>
-            <p>Some description</p>
-          </div>
+          {% csrf_token %}
+            {{ context }}
+<!--          {% for rase in context %}-->
+<!--            <div class="class-link">-->
+<!--              <a href=# > <img class="section-image" src="{% static '{{ race.img_path }}' %}"></a>-->
+<!--              <a href=#> <h3> {{ race.race_name }} </h3> </a>-->
+<!--              <p>Some description</p>-->
+<!--            </div>-->
+<!--          {% endfor %}-->
+<!--          <div class="class-link">-->
+<!--            <a href=# > <img class="section-image" src="{% static 'img/races/aasimar.png' %}"></a>-->
+<!--            <a href=#> <h3> Aasimar </h3> </a>-->
+<!--            <p>Some description</p>-->
+<!--          </div>-->
+<!--          <div class="class-link">-->
+<!--            <a href=# > <img class="section-image" src="{% static 'img/races/bugbear.png' %}"></a>-->
+<!--            <a href=#> <h3> Bugbear </h3> </a>-->
+<!--            <p>Some description</p>-->
+<!--          </div>-->
+<!--          <div class="class-link">-->
+<!--            <a href=# > <img class="section-image" src="{% static 'img/races/centaur.png' %}"></a>-->
+<!--            <a href=#> <h3> Centaur </h3> </a>-->
+<!--            <p>Some description</p>-->
+<!--          </div>-->
+<!--          <div class="class-link">-->
+<!--            <a href=# > <img class="section-image" src="{% static 'img/races/changeling.png' %}"></a>-->
+<!--            <a href=#> <h3> Changeling </h3> </a>-->
+<!--            <p>Some description</p>-->
+<!--          </div>-->
+<!--          <div class="class-link">-->
+<!--            <a href=# > <img class="section-image" src="{% static 'img/races/dragonborn.png' %}"></a>-->
+<!--            <a href=#> <h3> Dragonborn </h3> </a>-->
+<!--            <p>Some description</p>-->
+<!--          </div>-->
+<!--          <div class="class-link">-->
+<!--            <a href=# > <img class="section-image" src="{% static 'img/races/dwarf.png' %}"></a>-->
+<!--            <a href=#> <h3> Dwarf </h3> </a>-->
+<!--            <p>Some description</p>-->
+<!--          </div>-->
+<!--          <div class="class-link">-->
+<!--            <a href=# > <img class="section-image" src="{% static 'img/races/elf.png' %}"></a>-->
+<!--            <a href=#> <h3> Elf </h3> </a>-->
+<!--            <p>Some description</p>-->
+<!--          </div>-->
+<!--          <div class="class-link">-->
+<!--            <a href=# > <img class="section-image" src="{% static 'img/races/firbolg.png' %}"></a>-->
+<!--            <a href=#> <h3> Firbolg </h3> </a>-->
+<!--            <p>Some description</p>-->
+<!--          </div>-->
+<!--          <div class="class-link">-->
+<!--            <a href=# > <img class="section-image" src="{% static 'img/races/Genasi.png' %}"></a>-->
+<!--            <a href=#> <h3> Genasi </h3> </a>-->
+<!--            <p>Some description</p>-->
+<!--          </div>-->
+<!--          <div class="class-link">-->
+<!--            <a href=# > <img class="section-image" src="{% static 'img/races/giff.png' %}"></a>-->
+<!--            <a href=#> <h3> Giff </h3> </a>-->
+<!--            <p>Some description</p>-->
+<!--          </div>-->
+<!--          <div class="class-link">-->
+<!--            <a href=# > <img class="section-image" src="{% static 'img/races/gith.png' %}"></a>-->
+<!--            <a href=#> <h3> Gith (gtihyanki and githzerai)</h3> </a>-->
+<!--            <p>Some description</p>-->
+<!--          </div>-->
+<!--          <div class="class-link">-->
+<!--            <a href=# > <img class="section-image" src="{% static 'img/races/gnome.png' %}"></a>-->
+<!--            <a href=#> <h3> Gnome </h3> </a>-->
+<!--            <p>Some description</p>-->
+<!--          </div>-->
+<!--          <div class="class-link">-->
+<!--            <a href=# > <img class="section-image" src="{% static 'img/races/goliath.png' %}"></a>-->
+<!--            <a href=#> <h3> Goliath </h3> </a>-->
+<!--            <p>Some description</p>-->
+<!--          </div>-->
+<!--          <div class="class-link">-->
+<!--            <a href=# > <img class="section-image" src="{% static 'img/races/half-elf.png' %}"></a>-->
+<!--            <a href=#> <h3> Half-elf </h3> </a>-->
+<!--            <p>Some description</p>-->
+<!--          </div>-->
+<!--          <div class="class-link">-->
+<!--            <a href=# > <img class="section-image" src="{% static 'img/races/half-orc.png' %}"></a>-->
+<!--            <a href=#> <h3> Half-Orc </h3> </a>-->
+<!--            <p>Some description</p>-->
+<!--          </div>-->
+<!--          <div class="class-link">-->
+<!--            <a href=# > <img class="section-image" src="{% static 'img/races/halfling.png' %}"></a>-->
+<!--            <a href=#> <h3> Halfling </h3> </a>-->
+<!--            <p>Some description</p>-->
+<!--          </div>-->
+<!--          <div class="class-link">-->
+<!--            <a href=# > <img class="section-image" src="{% static 'img/races/Harengon.png' %}"></a>-->
+<!--            <a href=#> <h3> Harengon </h3> </a>-->
+<!--            <p>Some description</p>-->
+<!--          </div>-->
+<!--          <div class="class-link">-->
+<!--            <a href=# > <img class="section-image" src="{% static 'img/races/human.png' %}"></a>-->
+<!--            <a href=#> <h3> Human </h3> </a>-->
+<!--            <p>Some description</p>-->
+<!--          </div>-->
+<!--          <div class="class-link">-->
+<!--            <a href=# > <img class="section-image" src="{% static 'img/races/goliath.png' %}"></a>-->
+<!--            <a href=#> <h3> Goliath </h3> </a>-->
+<!--            <p>Some description</p>-->
+<!--          </div>-->
+<!--          <div class="class-link">-->
+<!--            <a href=# > <img class="section-image" src="{% static 'img/races/half-elf.png' %}"></a>-->
+<!--            <a href=#> <h3> Half-elf </h3> </a>-->
+<!--            <p>Some description</p>-->
+<!--          </div>-->
+<!--          <div class="class-link">-->
+<!--            <a href=# > <img class="section-image" src="{% static 'img/races/half-orc.png' %}"></a>-->
+<!--            <a href=#> <h3> Half-Orc </h3> </a>-->
+<!--            <p>Some description</p>-->
+<!--          </div>-->
 
 
         </div>

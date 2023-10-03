@@ -1,0 +1,33 @@
+{"race_name":"Аасімар ",
+  "img_path": "/img/races/aasimar.png",
+  "max_age": 160,
+  "size": "Середній",
+  "speed": 30,
+  "race_bonus": {"Strength":0, "Dexterity":0, "Constitution":0, "Intelligence":0, "Wisdom":0, "Charisma":2},
+  "description": "Аасімари несуть у своїх душах світло небес. Вони походять від людей і мають відтінок сили гори Селестія, божественного царства багатьох законних добрих божеств. Аасімари народжуються, щоб служити поборниками богів, їхні народження вшановують як благословенні події. Це люди з потойбічними образами, зі світними рисами, які розкривають їхню небесну спадщину.\n\nАазімар, за винятком того, хто звернувся до зла, має зв’язок з ангельською істотою. Ця істота – зазвичай дева – надає керівництво аасімару, хоча цей зв’язок діє лише уві сні. Таким чином, керівництво не є прямою командою чи простим усним словом. Натомість аазімар отримує видіння, пророцтва та почуття.",
+  "full_description": [],
+  "languages": ["Загальна", "Небесна"],
+  "else_traits": ["Темнобачення", "Небесний опір", "Зцілення рук", "Світлоносець"],
+  "subraces":[{
+      "subrace_name": "Захисник Аасімар",
+      "img_path": "",
+      "subrace_description": "",
+      "subrace_bonus":{"Strength":0, "Dexterity":0, "Constitution":0, "Intelligence":0, "Wisdom":1, "Charisma":0},
+      "else_traits":["Промениста душа"]
+    },
+    {
+      "subrace_name": "Каральний Аасімар",
+      "img_path": "",
+      "subrace_description": "",
+      "subrace_bonus":{"Strength":0, "Dexterity":0, "Constitution":1, "Intelligence":0, "Wisdom":0, "Charisma":0},
+      "else_traits":["Радіаційне споживання"]
+    },
+    {
+      "subrace_name": "Занепалий Аасімар",
+      "img_path": "",
+      "subrace_description": "",
+      "subrace_bonus":{"Strength":1, "Dexterity":0, "Constitution":0, "Intelligence":0, "Wisdom":0, "Charisma":0},
+      "else_traits":["Некротична плащаниця"]
+    }
+  ]
+}

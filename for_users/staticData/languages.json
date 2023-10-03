@@ -1,0 +1,66 @@
+{
+  "common": {
+    "translate": "Загальна",
+    "typical_speakers": ["Люди"]
+  },
+  "dwarvish": {
+    "translate": "Дварфійська",
+    "typical_speakers": ["Дварфи"]
+  },
+  "elvish": {
+    "translate": "Ельфійська",
+    "typical_speakers": ["Ельфи"]
+  },
+  "giant": {
+    "translate": "Мова Гігантів",
+    "typical_speakers": ["Огри, Гіганти"]
+  },
+  "gnomish": {
+    "translate": "Мова Гномів",
+    "typical_speakers": ["Гноми"]
+  },
+  "goblin": {
+    "translate": "Гоблінська",
+    "typical_speakers": ["Гобліноїди"]
+  },
+  "halfling": {
+    "translate": "Мова Напівросликів",
+    "typical_speakers": ["Напіврослики"]
+  },
+  "orc": {
+    "translate": "Орчанська",
+    "typical_speakers": ["Орки"]
+  },
+  "abyssal": {
+    "translate": "Мова Безодні",
+    "typical_speakers": ["Демони"]
+  },
+  "celestial": {
+    "translate": "Небесна",
+    "typical_speakers": ["Небожителі"]
+  },
+  "draconic": {
+    "translate": "Драконська",
+    "typical_speakers": ["Дракони, Дракононароджені"]
+  },
+  "deep_speech": {
+    "translate": "Глибинна",
+    "typical_speakers": ["Аболети"]
+  },
+  "infernal": {
+    "translate": "Пекельна",
+    "typical_speakers": ["Дияволи"]
+  },
+  "primordial": {
+    "translate": "Первісна",
+    "typical_speakers": ["Елементалі"]
+  },
+  "Sylvan": {
+    "translate": "Сільван",
+    "typical_speakers": ["Фейські істоти"]
+  },
+  "Undercommon": {
+    "translate": "Підземна Мова",
+    "typical_speakers": ["істоти Підзем'я"]
+  }
+}
