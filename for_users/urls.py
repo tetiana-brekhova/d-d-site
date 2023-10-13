@@ -11,6 +11,10 @@ urlpatterns = [
     path('equipment/', views.equipment, name="equipment"),
     path('magic/', views.magic, name="magic"),
     path('charactermaker/', views.charactermaker, name="charactermaker"),
-    path('usersguid/', views.usersguid, name="usersguid")
+    path('usersguid/', views.usersguid, name="usersguid"),
+    path('languages/', views.languages, name="languages")
+
 ]
+
+
 

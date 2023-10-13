@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Languages(models.Model):
     language_name = models.CharField(blank=True, max_length=50)
 
@@ -23,12 +24,10 @@ class Skills(models.Model):
     skill_name = models.CharField(blank=True, max_length=50)
     skill_value = 0
     skill_modifier = (skill_value-10)//2
-    ability_base = models.ManyToManyField(models.Abilities, related_name='base_skill')
-
 
 
     class Meta:
-        ordering = ["skill"]
+        ordering = ["skill_name"]
 
     def __str__(self):
         return self.skill_name
@@ -56,9 +55,10 @@ class Skills(models.Model):
 
 class Abilities(models.Model):
     ability_name = models.CharField(blank=True, max_length=100)
+    ability_base = models.ManyToManyField(Skills)
 
     class Meta:
-        ordering = ["ability"]
+        ordering = ["ability_name"]
 
     def __str__(self):
         return self.ability_name
@@ -75,28 +75,37 @@ class Abilities(models.Model):
     def get_by_id(ability_id):
         return Abilities.objects.get(id=ability_id) if Abilities.objects.filter(id=ability_id) else None
 
+
+    @staticmethod
+    def delete_by_id(ability_id):
+        if Abilities.get_by_id(ability_id) is None:
+            return False
+        Abilities.objects.get(id=ability_id).delete()
+        return True
+
+
     @staticmethod
     def get_all():
         return list(Abilities.objects.all())
 
 
 class Feats(models.Model):
-    name = models.CharField(blank=True, max_length=100)
+    feats_name = models.CharField(blank=True, max_length=100)
     description = models.CharField(blank=True, max_length=500)
     bonus_skill = models.ManyToManyField(Skills)
     bonus_value = models.IntegerField()
 
 
     class Meta:
-        ordering = ["feats"]
+        ordering = ["feats_name"]
 
     def __str__(self):
-        return self.name
+        return self.feats_name
 
     @staticmethod
-    def add_feats(name, description, bonus_skill, bonus_value):
+    def add_feats(feats_name, description, bonus_skill, bonus_value):
         new_feats = Feats()
-        new_feats.name = name
+        new_feats.feats_name = feats_name
         new_feats.description = description
         new_feats.bonus_skill = bonus_skill
         new_feats.bonus_value = bonus_value

@@ -9,76 +9,15 @@
     <div class="flex items-center justify-between px-6 py-3">
       <h2 class="section-name text-gray"> Choose your class: </h2>
         <div class="classes overflow-x-auto">
-
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/classes/artificer.png' %}"></a>
-            <a href=#> <h3> Artificer </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/classes/barbarian.png' %}"></a>
-            <a href=#> <h3> Barbarian </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/classes/bard.png' %}"></a>
-            <a href=#> <h3> Bard </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/classes/cleric.png' %}"></a>
-            <a href=#> <h3> Cleric </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/classes/druid.png' %}"></a>
-            <a href=#> <h3> Druid </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/classes/fighter.png' %}"></a>
-            <a href=#> <h3> Fighter </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/classes/monk.png' %}"></a>
-            <a href=#> <h3> Monk </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/classes/paladin.png' %}"></a>
-            <a href=#> <h3> Paladin </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/classes/ranger.png' %}"></a>
-            <a href=#> <h3> Ranger </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/classes/rogue.png' %}"></a>
-            <a href=#> <h3> Rogue </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/classes/sorcerer.png' %}"></a>
-            <a href=#> <h3> Sorcerer </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/classes/warlock.png' %}"></a>
-            <a href=#> <h3> Warlock </h3> </a>
-            <p>Some description</p>
-          </div>
-          <div class="class-link">
-
-          </div>
-          <div class="class-link">
-            <a href=# > <img class="section-image" src="{% static 'img/classes/wizard.png' %}"></a>
-            <a href=#> <h3> Wizard </h3> </a>
-            <p>Some description</p>
-          </div>
-
+          {% csrf_token %}
+          {% for key, value in context %}
+            <div>
+              <a href="#"> <img class="section-image" src="{% static  value.img_path %}" ></a>
+              <a href="#"> <h3 class="race-title"> {{ value.class_name }} </h3> </a>
+              <p class="description">
+              {{ value.description }} </p>
+            </div>
+          {% endfor %}
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
+import json
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 import os
 
 
@@ -10,17 +11,22 @@ def charactermaker(request):
     return render(request, 'usersguid/charactermaker.html')
 
 def races(request):
-    race_list = []
-    # directory = os.fsencode("staticData/races")
+    races_list = {}
     for file in os.listdir("/var/www/test_project/app/for_users/staticData/races"):
-        class_name = os.fsdecode(file)
-        with open(f"/var/www/test_project/app/for_users/staticData/races/{class_name}") as my_file:
-            race_list.append(my_file.read())
-    context = dict(enumerate(race_list))
-    return render(request, 'usersguid/races.html', context=context)
+        race_name = os.fsdecode(file)
+        with open(f"/var/www/test_project/app/for_users/staticData/races/{race_name}") as my_file:
+            races_list[(file.split('-'))[0]] = json.load(my_file)
+    context = races_list
+    return render(request, 'usersguid/races.html', {"context": list(context.items()) })
 
 def classes(request):
-    return render(request, 'usersguid/classes.html')
+    class_list = {}
+    for file in os.listdir("/var/www/test_project/app/for_users/staticData/classes"):
+        class_name = os.fsdecode(file)
+        with open(f"/var/www/test_project/app/for_users/staticData/classes/{class_name}") as my_file:
+            class_list[(file.split('-'))[0]] = json.load(my_file)
+    context = class_list
+    return render(request, 'usersguid/classes.html', {"context": list(context.items()) })
 
 def personality(request):
     return render(request, 'usersguid/personality.html')
@@ -29,5 +35,13 @@ def equipment(request):
     return render(request, 'usersguid/equipment.html')
 
 def magic(request):
-    return render(request, 'usersguid/magic.html')
+    with open(f"/var/www/test_project/app/for_users/staticData/spells/spell_start_screen.json") as my_file:
+        class_list = json.load(my_file)
+    section1 = class_list["data"][0]["section1"]
+    section2 = class_list["data"][0]["section2"]
+    return render(request, 'usersguid/magic.html', {"section1": section1, "section2": section2})
+
+def languages(request):
+    pass
+
 
