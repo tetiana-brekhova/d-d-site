@@ -12,8 +12,8 @@
           {% csrf_token %}
           {% for key, value in context %}
             <div>
-              <a href="#"> <img class="section-image" src="{% static  value.img_path %}" ></a>
-              <a href="#"> <h3 class="race-title"> {{ value.race_name }} </h3> </a>
+              <a href="{% url 'usersguid:race'  value.race_eng_name %}"> <img class="section-image" src="{% static  value.img_path %}" ></a>
+              <a href="{% url 'usersguid:race'  value.race_eng_name %}"> <h3 class="race-title"> {{ value.race_name }} </h3> </a>
               <p class="description">
               {{ value.description }} </p>
             </div>
