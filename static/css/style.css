@@ -2,6 +2,16 @@ h1, h2, h3 {
   text-align: center;
 }
 
+.section-name{
+  padding: 25px 0;
+  font-size: 3rem;
+}
+
+.race-features{
+  text-align: left;
+  text-indent: 50px;
+}
+
 p{
   font-size: 1.2rem;
   color: black;
@@ -27,6 +37,7 @@ body {
 }
 
 .flex{
+  text-align: center;
   padding: 5%;
   margin: -15px -100px;
   background-color: rgba(200, 200, 200, 0.7);
@@ -48,14 +59,24 @@ body {
   grid-row: 1;
 }
 
-. player-guid-link{
+.player-guid-link{
   grid-column: 2 / 2;
   grid-row: 1;
 }
 
+.chapter-image{
+  text-align: center;
+  padding: 15px 15px;
+  max-width: 650px;
+  height: 650px;
+  object-fit: scale-down;
+  filter: drop-shadow(20px 20px 10px black);
+}
+
 .section-image{
+  text-align: bottom;
   padding: 15px 5px;
-  max-width: 400px;
+  max-width: 500px;
   height: 400px;
   object-fit: scale-down;
   filter: drop-shadow(20px 20px 10px black);
@@ -69,8 +90,18 @@ body {
   -webkit-box-orient: vertical;
 }
 
+.subrace{
+  display:inline-block;
+  padding: 10px 25px;
+}
+
+.info-chapter{
+  padding: 20px 5px
+}
+
 .spelltext {
-    text-align: start;
+  text-align: start;
+  padding: 20px 5px
 }
 
 

@@ -15,8 +15,10 @@
     {% csrf_token %}
 
     <div class="class-spells">
+      {% for key, value in classes %}
       <a href="#"> <img class="class-spell-logo" src="{% static  value.img_path %}"></a>
       <a href="#"><h3 class="race-title"></h3> {{ value.class_name }} </a>
+      {% endfor %}
     </div>
     <div class="spelltext">
       <h3> Що таке заклинання? </h3>
@@ -34,6 +36,7 @@
         достатньо сили та мудрості.</p>
       {% for value in section1 %}
       <h4>{{ value.title }}</h4>
+      <hr>
       <p>{{ value.contents }}</p>
       {% endfor %}
 
@@ -46,6 +49,7 @@
 
       {% for value in section2 %}
       <h4>{{ value.title }}</h4>
+      <hr>
       <p>{{ value.description }}</p>
       {% for item in value.contents %}
       <h5>{{ item.title }}</h5>

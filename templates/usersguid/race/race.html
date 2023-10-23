@@ -1,12 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-  {{ context }}
+{% block title %}Site{% endblock %}
 
-</body>
-</html>
+{% block content %}
+{% load static %}
+
+<div class="2xl:container 2xl:mx-auto sm:py-5 sm:px-1 py-5 px-1">
+  <div class="flex items-center justify-between px-6 py-3">
+    <h2 class="section-name text-gray">{{ context.race_name }}</h2>
+    <div class="overflow-x-auto">
+      {% csrf_token %}
+      <img class="chapter-image" src="{% static  context.img_path %}">
+      <div>
+        <p>{{ context.description }}</p>
+        <h4 class="race-features">Розмір : {{ context.size }}</h4>
+        <h4 class="race-features">Тривалість життя : {{ context.max_age }}</h4>
+        <h4 class="race-features">Швидкість : {{ context.speed }} футів</h4>
+        <h4 class="race-features">Мови : {% for language in context.languages %} {{ language }}; {% endfor %}</h4>
+        <h4 class="race-features">Вміння : </h4>
+
+        {% for trait in context.else_traits %}
+        <h5 class="trait-name">{{ trait.name }}</h5>
+        <p>{{ trait.value }}</p>
+        {% endfor %}
+
+      </div>
+    </div>
+    <div>
+      {% for subrace in context.subraces %}
+      <div class="subrace">
+        <a href=#{{subrace.subrace_eng_name}}> <img src="{% static  subrace.img_path %}"></a>
+        <a href=#{{subrace.subrace_eng_name}}><h4> {{ subrace.subrace_name }} </h4></a>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="info-chapter">
+      {% for chapter in context.full_description %}
+      <h3>{{ chapter.chapter_name }} </h3>
+      <hr>
+      <p> {{ chapter.chapter_value }} </p>
+      {% endfor %}
+    </div>
+    <div>
+      {% for subrace in context.subraces %}
+      <div>
+        <h4 id={{subrace.subrace_eng_name}}> {{ subrace.subrace_name }} </h4>
+        <img src="{% static  subrace.img_path %}"></a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -26,7 +26,6 @@ INSTALLED_APPS = [
     'authentication',
     'home',
     'for_users',
-    'character_static_data',
     # 'for_masters',
     # 'blog',
 ]
@@ -125,4 +124,3 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-print("+++++++++", STATICFILES_DIRS)
