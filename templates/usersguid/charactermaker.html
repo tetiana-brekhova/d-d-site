@@ -1,10 +1,124 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block title %}Site{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<div class="2xl:container 2xl:mx-auto sm:py-5 sm:px-1 py-5 px-1">
+  <div class="flex items-center justify-between px-6 py-3">
+    <h2 class="section-name text-gray"> Make your choice... </h2>
+    
+    <form method="post" action="{% url 'charactermaker:page' %}">
+      {% csrf_token %}
+      <div class="overflow-x-auto">
+        <div class="maker">
+          <h3> Раса </h3>
+          {% for race in form.chr_race %}
+          <div>
+            
+            {{ race }}
+          </div>
+          {% endfor %}
+        
+        
+        </div>
+        <div class="maker">
+          <h3> Клас </h3>
+          <div>
+            {% for class in form.chr_class %}
+            {{ class }}
+            {% endfor %}
+          
+          
+          </div>
+        
+        </div>
+      </div>
+      
+      
+      <input type="submit" value="Submit">
+    </form>
+    
+    
+    <!--    <form id="race" method="post" action="{% url 'charactermaker:page' %}">-->
+    <!--      -->
+    <!--      <div class="overflow-x-auto">-->
+    <!--        <div class="maker">-->
+    <!--          <h3> Раса </h3>-->
+    <!--          {% csrf_token %}-->
+    <!--          -->
+    <!--          {% for race in races %}-->
+    <!--          -->
+    <!--          {% if not race.subraces %}-->
+    <!--          <div>-->
+    <!--            <input type="radio" name="races" value="{{ race.race_eng_name }}" id="{{ race.race_eng_name }}">-->
+    <!--            <label for="{{ race.race_eng_name }}">{{ race.race_name }}</label>-->
+    <!--          </div>-->
+    <!--          -->
+    <!--          -->
+    <!--          {% else %}-->
+    <!--          <div>-->
+    <!--            <p>{{ race.race_name }}</p>-->
+    <!--            {% for subrace in subraces %}-->
+    <!--            {% if subrace.race_id == race.race_id %}-->
+    <!--            <input type="radio" name="races" value="{{ subrace.subrace_eng_name }}" id="{{ subrace.subrace_eng_name }}">-->
+    <!--            <label for="{{ subrace.subrace_eng_name }}">{{ subrace.subrace_name }}</label>-->
+    <!--            {% endif %}-->
+    <!--            {% endfor %}-->
+    <!--          </div>-->
+    <!--          -->
+    <!--          -->
+    <!--          {% endif %}-->
+    <!--          {% endfor %}-->
+    <!--        -->
+    <!--        </div>-->
+    <!--        -->
+    <!--        <div class="maker">-->
+    <!--          <h3> Класс </h3>-->
+    <!--          {% csrf_token %}-->
+    <!--          -->
+    <!--          {% for class in classes %}-->
+    <!--          -->
+    <!--          {% if not class.subclasses %}-->
+    <!--          <div>-->
+    <!--            <input type="radio" name="class" value="{{ class.class_eng_name }}" id="{{ class.class_eng_name }}">-->
+    <!--            <label for="{{ class.class_eng_name }}">{{ class.class_name }}</label>-->
+    <!--          </div>-->
+    <!--          -->
+    <!--          -->
+    <!--          {% else %}-->
+    <!--          <div>-->
+    <!--            <p>{{ class.class_name }}</p>-->
+    <!--            {% for subclass in subclasses %}-->
+    <!--            {% if subclass.class_id == class.class_id %}-->
+    <!--            <input type="radio" name="class" value="{{ subclass.eng_name }}"-->
+    <!--                   id="{{ subclass.class_eng_name }}">-->
+    <!--            <label for="{{ subclass.class_eng_name }}">{{ subclass.subclass_name }}</label>-->
+    <!--            {% endif %}-->
+    <!--            {% endfor %}-->
+    <!--          </div>-->
+    <!--          -->
+    <!--          -->
+    <!--          {% endif %}-->
+    <!--          {% endfor %}-->
+    <!--        -->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--      <a href="{% url 'charactermaker:page'  %}">-->
+    <!--        <button id="submitBtn">Submit Both Forms</button>-->
+    <!--      </a>-->
+    <!--      -->
+    <!--      <script>-->
+    <!--        document.getElementById('submitBtn').addEventListener('click', function() {-->
+    <!--          document.getElementById('race').submit();-->
+    <!--          document.getElementById('class').submit();-->
+    <!--        });-->
+    <!--      </script>-->
+    <!--    </form>-->
+  
+  </div>
+</div>
+
+
+{% endblock %}

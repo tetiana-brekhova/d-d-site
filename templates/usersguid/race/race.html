@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Site{% endblock %}
+{% block title %}{{ context.race_name }}{% endblock %}
 
 {% block content %}
 {% load static %}
@@ -8,29 +8,31 @@
 <div class="2xl:container 2xl:mx-auto sm:py-5 sm:px-1 py-5 px-1">
   <div class="flex items-center justify-between px-6 py-3">
     <h2 class="section-name text-gray">{{ context.race_name }}</h2>
+    <p>{{ context.description }}</p>
     <div class="overflow-x-auto">
       {% csrf_token %}
       <img class="chapter-image" src="{% static  context.img_path %}">
       <div>
-        <p>{{ context.description }}</p>
         <h4 class="race-features">Розмір : {{ context.size }}</h4>
         <h4 class="race-features">Тривалість життя : {{ context.max_age }}</h4>
         <h4 class="race-features">Швидкість : {{ context.speed }} футів</h4>
         <h4 class="race-features">Мови : {% for language in context.languages %} {{ language }}; {% endfor %}</h4>
+        <h4 class="race-features">Збільшення характеристик :  </h4><h5>{% for bonus in context.race_bonus %} {{ bonus.name }} на {{ bonus.val }}, {% endfor %}</h5>
         <h4 class="race-features">Вміння : </h4>
-
+        
         {% for trait in context.else_traits %}
         <h5 class="trait-name">{{ trait.name }}</h5>
         <p>{{ trait.value }}</p>
         {% endfor %}
-
+      
       </div>
     </div>
     <div>
-      {% for subrace in context.subraces %}
+      {% for subrace in subraces %}
       <div class="subrace">
-        <a href=#{{subrace.subrace_eng_name}}> <img src="{% static  subrace.img_path %}"></a>
+        {% if subrace.race_id == context.race_id %}
         <a href=#{{subrace.subrace_eng_name}}><h4> {{ subrace.subrace_name }} </h4></a>
+        {% endif %}
       </div>
       {% endfor %}
     </div>
@@ -42,12 +44,26 @@
       {% endfor %}
     </div>
     <div>
-      {% for subrace in context.subraces %}
-      <div>
-        <h4 id={{subrace.subrace_eng_name}}> {{ subrace.subrace_name }} </h4>
-        <img src="{% static  subrace.img_path %}"></a>
+      <div class="subrace">
+        {% for subrace in subraces %}
+        {% if subrace.race_id == context.race_id %}
+        <hr>
+        
+        <h2 id={{subrace.subrace_eng_name}}> {{ subrace.subrace_name }} </h2>
+        <div class="overflow-x-auto">
+          <img class="chapter-image" src="{% static  subrace.img_path %}"></a>
+          <div>
+            <p> {{ subrace.subrace_description }} </p>
+        <h4 class="race-features">Збільшення характеристик :  </h4><h5>{% for bonus in subrace.subrace_bonus %} {{ bonus.name }} на {{ bonus.val }}, {% endfor %}</h5>
+          </div>
+        </div>
+        {% for trait in subrace.else_traits %}
+        <h4>{{ trait.name }}</h4>
+        <p>{{ trait.value }}</p>
+        {% endfor %}
+        {% endif %}
+        {% endfor %}
       </div>
-      {% endfor %}
     </div>
   </div>
 </div>

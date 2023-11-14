@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'authentication',
     'home',
     'for_users',
+    'charactermaker',
     # 'for_masters',
     # 'blog',
 ]

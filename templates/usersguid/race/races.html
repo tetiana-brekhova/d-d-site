@@ -7,11 +7,11 @@
 
   <div class="2xl:container 2xl:mx-auto sm:py-5 sm:px-1 py-5 px-1">
     <div class="flex items-center justify-between px-6 py-3">
-      <h2 class="section-name text-gray"> Choose your rase: </h2>
+      <h2 class="section-name text-gray"> Раси </h2>
         <div class="classes">
           {% csrf_token %}
-          {% for key, value in context %}
-            <div>
+          {% for value in context %}
+            <div class="one-class">
               <a href="{% url 'usersguid:race'  value.race_eng_name %}"> <img class="section-image" src="{% static  value.img_path %}" ></a>
               <a href="{% url 'usersguid:race'  value.race_eng_name %}"> <h3 class="race-title"> {{ value.race_name }} </h3> </a>
               <p class="description">

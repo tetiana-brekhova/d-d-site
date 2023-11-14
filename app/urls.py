@@ -9,6 +9,7 @@ urlpatterns = [
     path('authentication/', include('authentication.urls')),
     path('', include('home.urls')),
     path('usersguid/', include('for_users.urls')),
+    path('charactermaker/', include('charactermaker.urls')),
 
 ]
 

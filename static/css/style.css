@@ -2,6 +2,11 @@ h1, h2, h3 {
   text-align: center;
 }
 
+h6{  padding: 0px 30px;
+line-height: 25px;
+
+}
+
 .section-name{
   padding: 25px 0;
   font-size: 3rem;
@@ -12,11 +17,19 @@ h1, h2, h3 {
   text-indent: 50px;
 }
 
+.class-img {
+  float: left;}
+
+.class-text{
+  text-align: justify;
+}
+
 p{
+  white-space: pre-line;
   font-size: 1.2rem;
   color: black;
   text-indent: 50px;
-  text-align: left;
+  text-align: justify;
   font-style: italic;
   font-family: cursive;
 }
@@ -84,9 +97,10 @@ body {
 
 .description {
   padding: 1% 5% ; overflow: hidden;
+  font-size: 1.1rem;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
 }
 
@@ -104,4 +118,14 @@ body {
   padding: 20px 5px
 }
 
+label{
+  font-size: 1.2rem;
+  color: black;
+  font-style: italic;
+  font-family: cursive;
+}
 
+input{
+
+  padding: 200px 5px
+}
