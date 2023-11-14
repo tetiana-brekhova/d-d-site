@@ -25,13 +25,11 @@
         </div>
         <div class="maker">
           <h3> Клас </h3>
+          {% for class in form.chr_class %}
           <div>
-            {% for class in form.chr_class %}
             {{ class }}
-            {% endfor %}
-          
-          
           </div>
+          {% endfor %}
         
         </div>
       </div>
