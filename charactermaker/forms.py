@@ -34,5 +34,11 @@ class MyForm(forms.Form):
         widget=forms.RadioSelect,
         choices=CHR_CLASS,
     )
+    chr_name = forms.ChoiceField(widget=forms.Textarea, label="Ім'я")
+    appearance = forms.ChoiceField(widget=forms.Textarea, label="Зовнішність")
+    backstory = forms.ChoiceField(widget=forms.Textarea, label="Передісторія")
+    # chr_class = forms.ChoiceField(label="", max_length=100)
+    # chr_class = forms.ChoiceField(label="", max_length=100)
+
 
 

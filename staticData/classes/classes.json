@@ -1,7 +1,55 @@
 [
   {
+    "class_eng_name": "artificer",
     "class_id": 1,
+    "class_name": "Артифактор",
+    "img_path": "img/classes/artificer.png"
+  },
+  {
+    "class_eng_name": "bard",
+    "class_id": 2,
+    "class_name": "Бард",
+    "img_path": "img/classes/bard.png"
+  },
+  {
+    "class_eng_name": "fighter",
+    "class_id": 3,
+    "class_name": "Боєць",
+    "img_path": "img/classes/fighter.png"
+  },
+  {
+    "class_eng_name": "barbarian",
+    "class_id": 4,
+    "class_name": "Варвар",
+    "img_path": "img/classes/barbarian.png"
+  },
+  {
+    "class_eng_name": "druid",
+    "class_id": 5,
+    "class_name": "Друїд",
+    "img_path": "img/classes/druid.png"
+  },
+  {
+    "class_eng_name": "cleric",
+    "class_id": 6,
+    "class_name": "Клірик",
+    "img_path": "img/classes/cleric.png"
+  },
+  {
+    "class_eng_name": "monk",
+    "class_id": 7,
+    "class_name": "Монах",
+    "img_path": "img/classes/monk.png"
+  },
+  {
+    "class_eng_name": "paladin",
+    "class_id": 8,
+    "class_name": "Паладин",
+    "img_path": "img/classes/paladin.png"
+  },
+  {
     "class_eng_name": "ranger",
+    "class_id": 9,
     "class_name": "Рейнджер",
     "img_path": "img/classes/ranger.png",
     "description": "Грубий і дикий вигляд, людина самотньо переслідує крізь тіні дерев, полюючи на орків, які, як він знає, планують набіг на сусідню ферму. Стискаючи в кожній руці по короткому мечу, він стає сталевим вихором, знищуючи одного ворога за іншим.\n\nПісля того, як ельфійка відвалилася від конуса крижаного повітря, знайшла свої ноги й натягнула лук, щоб пустити стрілу в білого дракона. Знизавши плечима хвилю страху, що виходить від дракона, як холод його подиху, вона посилає одну стрілу за одною, щоб знайти проміжки між товстою лускою дракона.\n\nВисоко тримаючи руку, напівельф свистить яструбу, який кружляє високо над ним, закликаючи птаха повернутися до себе. Шепочучи вказівки ельфійською, він вказує на ведмедя-сову, за яким стежив, і посилає яструба відволікти істоту, поки він готовий свій лук.\n\nДалеко від метушні міст і містечок, повз живоплоти, які захищають найвіддаленіші ферми від жахів дикої природи, серед густих дерев бездоріжних лісів і на широких і порожніх рівнинах, рейнджери постійно пильнують.",
@@ -66,10 +114,21 @@
       }
     ],
     "start_equipment": [
-      "Луската кольчуга АБО шкіряна броня",
-      "Два короткі мечі АБО дві прості зброї ближнього бою",
-      "Рюкзак підземелля АБО рюкзак дослідника",
-      "Довгий лук і сагайдак з 20 стрілами"
+      {
+        "a": "Луската кольчуга",
+        "b": "Шкіряна броня"
+      },
+      {
+        "a": "Два короткі мечі",
+        "b": "Дві прості зброї ближнього бою"
+      },
+      {
+        "a": "Рюкзак підземелля",
+        "b": "Рюкзак дослідника"
+      },
+      {
+        "z": "Довгий лук і сагайдак з 20 стрілами"
+      }
     ],
     "base_ability": "мудрість",
     "base_spell_save_dc": 8,
@@ -348,5 +407,29 @@
     "chose_subclass_level": 3,
     "subclasses": true,
     "subclass_naming": "Архетипи"
+  },
+  {
+    "class_eng_name": "rogue",
+    "class_id": 10,
+    "class_name": "Шахрай",
+    "img_path": "img/classes/rogue.png"
+  },
+  {
+    "class_id": 11,
+    "class_eng_name": "sorcerer",
+    "class_name": "Чародій",
+    "img_path": "img/classes/sorcerer.png"
+  },
+  {
+    "class_id": 12,
+    "class_eng_name": "warlock",
+    "class_name": "Чаклун",
+    "img_path": "img/classes/warlock.png"
+  },
+  {
+    "class_id": 13,
+    "class_eng_name": "wizard",
+    "class_name": "Чарівник",
+    "img_path": "img/classes/wizard.png"
   }
 ]

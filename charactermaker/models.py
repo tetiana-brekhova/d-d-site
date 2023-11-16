@@ -8,7 +8,7 @@ class Character(models.Model):
     start_characteristics = {}
     bonus_characteristics = {}
     languages = []
-    description = models.CharField(blank=True, max_length=10000)
+    appearance = models.CharField(blank=True, max_length=10000)
     backstory = models.CharField(blank=True, max_length=10000)
     size = ""
     level = models.IntegerField()

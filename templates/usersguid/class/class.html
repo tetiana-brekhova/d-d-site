@@ -29,8 +29,13 @@
         {% endfor %}
         <h5>Стартове спорядження</h5>
         {% for equip in context.start_equipment %}
-        <h6>{{ equip }}</h6>
-        
+        {% if equip.b %}
+        <h6> а - {{ equip.a }};    б - {{ equip.b }};</h6>
+        {% elif equip.a and equip.b and equip.c %}
+        <h6> а - {{ equip.a }}; б - {{ equip.b }};  в - {{ equip.c }};</h6>
+        {% else %}
+        <h6>{{ equip.z }}</h6>
+        {% endif %}
         {% endfor %}
       </div>
     </div>

@@ -18,10 +18,8 @@ with open(f"{static_data_path}/classes/classes.json") as class_file:
 with open(f"{static_data_path}/classes/subclasses.json") as class_file:
     SUBCLASSES = json.load(class_file)
 
-# for file in sorted(os.listdir(f"{static_data_path}/spells/classSpell")):
-#     spell_class = os.fsdecode(file)
-#     with open(f"{static_data_path}/spells/classSpell/{spell_class}") as spell_file:
-#         SPELLS[(file.split('.'))[0]] = json.load(spell_file)
+with open(f"{static_data_path}/spells/spells.json") as spell_file:
+    SPELLS = json.load(spell_file)
 
 
 def usersguid(request):
@@ -68,7 +66,11 @@ def magic(request):
     section1 = spell_data["section1"]
     section2 = spell_data["section2"]
     return render(request, 'usersguid/spells/magic.html',
-                  {"section1": section1, "section2": section2, "classes": list(SPELLS.items())})
+                  {"section1": section1, "section2": section2})
+
+def class_spells(request, class_id):
+    cantrips = [spell for spell in SPELLS["cantrips"] if class_id in spell["class_id"]]
+    first = [spell for spell in SPELLS["1"] if class_id in spell["class_id"]]
 
 
 def languages(request):

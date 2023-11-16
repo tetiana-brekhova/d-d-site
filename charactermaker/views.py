@@ -20,8 +20,15 @@ with open(f"{static_data_path}/classes/subclasses.json") as class_file:
     SUBCLASSES = json.load(class_file)
 
 def charactermaker(request):
-
-    return render(request, 'usersguid/charactermaker.html', {"form": MyForm()})
+    if request.method == 'POST':
+        form = MyForm(request.POST, request.FILES)
+        if form.is_valid():
+            races = form.cleaned_data.getlist('chr_race')
+            char_class = form.cleaned_data.getlist('chr_class')
+            print(races, char_class)
+    else:
+        form = MyForm()
+    return render(request, 'usersguid/charactermaker.html', {"form": form})
 
     #     char_class = request.GET.get("class", "")
     #     char_race = request.GET.get("races", "")
@@ -35,16 +42,6 @@ def charactermaker(request):
 
 
 def page(request):
-    if request.method == 'POST':
-        form = MyForm(request.POST)
-        if form.is_valid():
-            races = form.cleaned_data['chr_race']
-            char_class = form.cleaned_data['chr_class']
-            print(races, char_class)
-            # Now you can use races and char_class in your code
-            # ...
-    else:
-        form = MyForm()
 
     # return render(request, 'usersguid.html', {'form': form})
     return HttpResponse(request)
