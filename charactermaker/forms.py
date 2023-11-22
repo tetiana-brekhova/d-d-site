@@ -26,17 +26,17 @@ class MyForm(forms.Form):
         else:
             CHR_RACE.append((race["race_eng_name"], race["race_name"]))
     chr_race = forms.ChoiceField(
-        widget=forms.RadioSelect,
-        choices=CHR_RACE,
+        widget=forms.Select,
+        choices=CHR_RACE, label="Раса"
     )
     CHR_CLASS = [(c["class_eng_name"], c["class_name"]) for c in CLASSES]
     chr_class = forms.ChoiceField(
-        widget=forms.RadioSelect,
-        choices=CHR_CLASS,
+        widget=forms.Select,
+        choices=CHR_CLASS, label="Клас"
     )
-    chr_name = forms.ChoiceField(widget=forms.Textarea, label="Ім'я")
-    appearance = forms.ChoiceField(widget=forms.Textarea, label="Зовнішність")
-    backstory = forms.ChoiceField(widget=forms.Textarea, label="Передісторія")
+    chr_name = forms.CharField(widget=forms.Textarea, label="Ім'я")
+    appearance = forms.CharField(widget=forms.Textarea, label="Зовнішність")
+    backstory = forms.CharField(widget=forms.Textarea, label="Передісторія")
     # chr_class = forms.ChoiceField(label="", max_length=100)
     # chr_class = forms.ChoiceField(label="", max_length=100)
 

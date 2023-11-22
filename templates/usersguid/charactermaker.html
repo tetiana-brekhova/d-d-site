@@ -9,27 +9,16 @@
   <div class="flex items-center justify-between px-6 py-3">
     <h2 class="section-name text-gray"> Виберіть расу та клас </h2>
     
-    <form method="post" action="{% url 'charactermaker:page' %}">
+    <form method="post">
       {% csrf_token %}
       <div class="overflow-x-auto">
         <div class="maker">
           <h3> Раса </h3>
-          {% for race in form.chr_race %}
-          <div>
-            
-            {{ race }}
-          </div>
-          {% endfor %}
-        
-        
+          {{ form.chr_race }}
         </div>
         <div class="maker">
           <h3> Клас </h3>
-          {% for class in form.chr_class %}
-          <div>
-            {{ class }}
-          </div>
-          {% endfor %}
+          {{ form.chr_class }}
         </div>
       </div>
       <h3>Опис персонажа</h3>
@@ -42,12 +31,9 @@
       
       {{ form.backstory.label_tag }}
       {{ form.backstory }}
-      <button type="submit" class="btn btn-secondary"> "Вибрати" </button>
+      <button type="submit" class="btn btn-secondary"> Вибрати </button>
     </form>
     
-    
-    
-  
   </div>
 </div>
 

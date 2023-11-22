@@ -12,6 +12,7 @@ urlpatterns = [
     path('personality/', views.personality, name="personality"),
     path('equipment/', views.equipment, name="equipment"),
     path('magic/', views.magic, name="magic"),
+    path('magic/<class_id>', views.class_spells, name="class_spells"),
     path('usersguid/', views.usersguid, name="usersguid"),
     path('languages/', views.languages, name="languages")
 

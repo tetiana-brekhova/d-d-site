@@ -69,8 +69,14 @@ def magic(request):
                   {"section1": section1, "section2": section2})
 
 def class_spells(request, class_id):
-    cantrips = [spell for spell in SPELLS["cantrips"] if class_id in spell["class_id"]]
-    first = [spell for spell in SPELLS["1"] if class_id in spell["class_id"]]
+    cantrips = [spell for spell in SPELLS["cantrips"] if int(class_id) in spell["class_id"]]
+    first = [spell for spell in SPELLS["1"] if int(class_id) in spell["class_id"]]
+    class_name = ""
+    for c in CLASSES:
+        if c["class_id"] == int(class_id):
+            class_name = c["class_name"]
+    return render(request, 'usersguid/spells/class_spells.html',
+                  {"name": class_name, "cantrips": cantrips, "first": first})
 
 
 def languages(request):

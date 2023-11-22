@@ -28,7 +28,7 @@ p{
   white-space: pre-line;
   font-size: 1.2rem;
   color: black;
-  text-indent: 50px;
+  text-indent: 25px;
   text-align: justify;
   font-style: italic;
   font-family: cursive;
@@ -126,6 +126,36 @@ label{
 }
 
 input{
-
   padding: 200px 5px
+}
+
+.class-spells{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.spell-block{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.spell_name{
+display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #cc6600;
+  padding: 1rem 1rem;
+  vertical-align: middle;
+}
+
+.spell_description{
+  border: 1px solid #cc6600;
+  padding: 0.5rem 1rem;
+  vertical-align: middle;
+}
+
+.spell-p{
+  font-size: 1.1rem;
+  text-indent: 5px;
 }

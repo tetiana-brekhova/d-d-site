@@ -21,11 +21,14 @@ with open(f"{static_data_path}/classes/subclasses.json") as class_file:
 
 def charactermaker(request):
     if request.method == 'POST':
-        form = MyForm(request.POST, request.FILES)
+        form = MyForm(request.POST)
         if form.is_valid():
-            races = form.cleaned_data.getlist('chr_race')
-            char_class = form.cleaned_data.getlist('chr_class')
-            print(races, char_class)
+            races = form.cleaned_data.get('chr_race')
+            char_class = form.cleaned_data.get('chr_class')
+            chr_name = form.cleaned_data.get("chr_name")
+            appearance = form.cleaned_data.get("appearance")
+            backstory = form.cleaned_data.get("backstory")
+            return HttpResponse(chr_name)
     else:
         form = MyForm()
     return render(request, 'usersguid/charactermaker.html', {"form": form})
