@@ -7,32 +7,20 @@
 
 <div class="2xl:container 2xl:mx-auto sm:py-5 sm:px-1 py-5 px-1">
   <div class="flex items-center justify-between px-6 py-3">
-    <h2 class="section-name text-gray"> Виберіть расу та клас </h2>
+    <h2 class="section-name text-gray"> Виберіть \ </h2>
     
     
     <form method="post">
       {% csrf_token %}
       <div class="overflow-x-auto">
         <div class="maker">
-          <div class="overflow-x-auto">
-            <div>
-              <h3> Раса </h3>
-              {{ form.chr_race }}
-            </div>
-            <div>
-              <h3> Клас </h3>
-              {{ form.chr_class }}
-            </div>
-          
-          </div>
+
           <hr>
-          <h3>Куби</h3>
+          <h3>Класові особливості</h3>
           <div>
-            {{ form.chr_level.label_tag }}
-            {{ form.chr_level }}
+броня та зброя
             <br>
-            {{ form.alignment.label_tag }}
-            {{ form.alignment }}
+навичкиб ремесла і т.д.
             <br>
             {{ form.backgrounds.label_tag }}
             {{ form.backgrounds }}
@@ -42,11 +30,10 @@
           </div>
         </div>
         <div class="maker">
-          <h3>Опис персонажа</h3>
+          <h3>Персональні особливості </h3>
           
           <div class="chr_name">
-            <p>{{ form.chr_name.label_tag }}</p>
-            {{ form.chr_name }}
+ідеали, страхи...
           </div>
           <p>{{ form.appearance.label_tag }}</p>
           {{ form.appearance }}

@@ -2,7 +2,6 @@ from django import forms
 import os
 import json
 
-
 static_data_path = os.path.join(os.path.dirname(__file__), "../staticData")
 
 with open(f"{static_data_path}/races/races.json") as race_file:
@@ -14,6 +13,8 @@ with open(f"{static_data_path}/races/subraces.json") as race_file:
 with open(f"{static_data_path}/classes/classes.json") as class_file:
     CLASSES = json.load(class_file)
 
+with open(f"{static_data_path}/information/character_pesonality.json") as class_file:
+    BACKGROUNDS = json.load(class_file)
 
 
 class MyForm(forms.Form):
@@ -34,11 +35,28 @@ class MyForm(forms.Form):
         widget=forms.Select,
         choices=CHR_CLASS, label="Клас"
     )
+    LEVELS = [(n, n) for n in range(1, 21)]
+    chr_level = forms.ChoiceField(widget=forms.Select,
+                                  choices=LEVELS,
+                                  label="Рівень"
+                                  )
+    backgrounds = forms.ChoiceField(
+        widget=forms.Select,
+        choices=[(s["eng_name"], s["name"]) for s in BACKGROUNDS["backgrounds"]],
+        label="Передісторія"
+    )
     chr_name = forms.CharField(widget=forms.Textarea, label="Ім'я")
+    alignment = forms.ChoiceField(widget=forms.Select,
+                                  choices=[("Законно-добрий", "Законно-добрий"),
+                                           ("Законно-нейтральний", "Законно-нейтральний"),
+                                           ("Законно-злий", "Законно-злий"), ("Нейтрально-добрий", "Нейтрально-добрий"),
+                                           ("Нейтральний", "Нейтральний"), ("Нейтрально-злий", "Нейтрально-злий"),
+                                           ("Хаотично-добрий", "Хаотично-добрий"),
+                                           ("Хаотично-нейтральний", "Хаотично-нейтральний"),
+                                           ("Хаотично-злий", "Хаотично-злий")],
+                                  label="Світогляд"
+                                  )
     appearance = forms.CharField(widget=forms.Textarea, label="Зовнішність")
-    backstory = forms.CharField(widget=forms.Textarea, label="Передісторія")
-    # chr_class = forms.ChoiceField(label="", max_length=100)
-    # chr_class = forms.ChoiceField(label="", max_length=100)
-
+    biography = forms.CharField(widget=forms.Textarea, label="Біографія")
 
 

@@ -4,7 +4,6 @@ h1, h2, h3 {
 
 h6{  padding: 0px 30px;
 line-height: 25px;
-
 }
 
 .section-name{
@@ -158,4 +157,53 @@ display: flex;
 .spell-p{
   font-size: 1.1rem;
   text-indent: 5px;
+}
+
+#id_chr_name{
+  height: 2.1rem;
+  width: 250px;
+  margin: 0rem 1rem;
+
+}
+
+textarea{
+  background-color: rgba(250, 250, 250, 0.4);
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  font-size: 1rem;
+  font-style: italic;
+  font-family: cursive;
+  resize: none;
+  width: 90%;
+  padding: 0% 1% 0% 3%
+}
+
+
+.chr_name{
+  display: flex;
+}
+
+select{
+  border-radius: 10px;
+  width: 250px;
+  text-align: center;
+  font-style: italic;
+  font-family: cursive;
+  font-size: 1.1rem;
+  margin: 8px;
+  cursor: pointer;
+  color: var(--baseFg);
+  padding: 0.5em 0.75em;
+  background-color: rgba(250, 250, 250, 0.3);
+  }
+
+#id_chr_level{
+  width: auto;
+}
+
+option{
+  background-color: #CCC8C2;
+  border: 10px;
+  border-style: dashed solid;
+  text-align: left;
 }

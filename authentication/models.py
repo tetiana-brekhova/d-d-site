@@ -3,8 +3,6 @@ from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.db import models
 
-# ROLE_CHOICES = ()
-
 
 class CustomUserManager(BaseUserManager):
 
@@ -29,7 +27,6 @@ class CustomUser(AbstractBaseUser):
     user_name = models.CharField(max_length=20, default=None, null=True)
     email = models.CharField(max_length=100, unique=True, default=None)
     password = models.CharField(default=None, max_length=255)
-    created_at = models.DateTimeField(editable=False, auto_now=datetime.datetime.now())
     is_active = models.BooleanField(default=True)
     id = models.AutoField(primary_key=True)
 
@@ -37,7 +34,7 @@ class CustomUser(AbstractBaseUser):
     objects = CustomUserManager()
 
     def __str__(self):
-        return f"'id': {self.id}, 'user_name': '{self.user_name}', 'email': '{self.email}', 'created_at': {int(self.created_at.timestamp())}, 'updated_at': {int(self.updated_at.timestamp())}, 'role': {self.role}"
+        return f"'id': {self.id}, 'user_name': '{self.user_name}', 'email': '{self.email}'"
 
     def __repr__(self):
         return f"{CustomUser.__name__}(id={self.id})"
@@ -62,7 +59,7 @@ class CustomUser(AbstractBaseUser):
 
     @staticmethod
     def create(email, password, user_name=None):
-        if len(user_name) <= 20 and len(email) <= 100 and len(email.split('@')) == 2 and len(CustomUser.objects.filter(email=email)) == 0:
+        if len(user_name) >= 0 and len(email) <= 100 and len(email.split('@')) == 2 and len(CustomUser.objects.filter(email=email)) == 0:
             custom_user = CustomUser(email=email, password=password, user_name=user_name)
             custom_user.save()
             return custom_user
@@ -72,7 +69,6 @@ class CustomUser(AbstractBaseUser):
         return {'id': self.id,
                 'user_name': f'{self.user_name}',
                 'email': f'{self.email}',
-                'created_at': int(self.created_at.timestamp()),
                 'is_active': self.is_active}
 
 
