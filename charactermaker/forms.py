@@ -30,7 +30,7 @@ class MyForm(forms.Form):
         widget=forms.Select,
         choices=CHR_RACE, label="Раса"
     )
-    CHR_CLASS = [(c["class_eng_name"], c["class_name"]) for c in CLASSES]
+    CHR_CLASS = [(c, CLASSES[c]["class_name"]) for c in CLASSES]
     chr_class = forms.ChoiceField(
         widget=forms.Select,
         choices=CHR_CLASS, label="Клас"

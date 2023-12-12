@@ -64,8 +64,19 @@ def charactermaker(request):
 def page(request):
 
     # TODO: add func "select_features" in models
+    subclasses = []
+    ideals = []
+    traits = []
+    bonds = []
+    flaws = []
+    equip = []
+    abil = []
+    if int(TEMP_CHAR["level"]) >= CLASSES[TEMP_CHAR["class"]]["chose_subclass_level"]:
+        for sub in SUBCLASSES:
+            if sub["class_id"] == CLASSES[TEMP_CHAR["class"]]["class_id"]:
+                subclasses.append(sub["subclass_name"])
 
-    return render(request, 'usersguid/page.html')
+    return render(request, 'usersguid/page.html', {"subclasses": subclasses})
 
 # {% url 'charactermaker:page' race.race_eng_name, subrace.subrace_eng_name%}
 # {% url 'charactermaker:page' class.class_eng_name %}

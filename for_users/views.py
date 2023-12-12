@@ -12,7 +12,8 @@ with open(f"{static_data_path}/races/subraces.json") as race_file:
     SUBRACES = json.load(race_file)
 
 with open(f"{static_data_path}/classes/classes.json") as class_file:
-    CLASSES = json.load(class_file)
+    classes = json.load(class_file)
+    CLASSES = [classes[c] for c in classes]
 
 
 with open(f"{static_data_path}/classes/subclasses.json") as class_file:

@@ -6,4 +6,6 @@ app_name = 'charactermaker'
 urlpatterns = [
     path('', views.charactermaker, name="charactermaker"),
     path('page/', views.page, name="page"),
+    # path('character/', views.character, name="character"),
+
 ]
