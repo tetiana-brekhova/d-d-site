@@ -14,16 +14,36 @@
       {% csrf_token %}
       <div class="overflow-x-auto">
         <div class="maker">
-
           <hr>
           <h3>Класові особливості</h3>
+          {{ form.as_p }}
+          
           <div>
-броня та зброя
+            <p>броня та зброя</p>
+            <form name="equip" method="post">
+              {% for equipment in class.start_equipment %}
+              {% if equipment.a %}
+              {% csrf_token %}
+              
+              <select name="{{equipment.num}}">
+                <option value="a">{{equipment.a}}</option>
+                <option value="b">{{equipment.b}}</option>
+                {% if equipment.c %}
+                <option value="c">{{equipment.c}}</option>
+                {% endif %}
+              </select>
+              <br><br>
+              
+              {% endif %}
+              {% endfor %}
+            </form>
+            <button type="submit" class="btn btn-secondary"> Вибрати</button>
+            
             <br>
-навичкиб ремесла і т.д.
+            навичкиб ремесла і т.д.
             <br>
-            {{ form.backgrounds.label_tag }}
-            {{ form.backgrounds }}
+            <!--            {{ form.backgrounds.label_tag }}-->
+            <!--            {{ form.backgrounds }}-->
             
             <br>
           
@@ -33,16 +53,16 @@
           <h3>Персональні особливості </h3>
           
           <div class="chr_name">
-ідеали, страхи...
+            ідеали, страхи...
           </div>
-          <p>{{ form.appearance.label_tag }}</p>
-          {{ form.appearance }}
-          
-          <p>{{ form.biography.label_tag }}</p>
-          {{ form.biography }}
+          <!--          <p>{{ form.appearance.label_tag }}</p>-->
+          <!--          {{ form.appearance }}-->
+          <!--          -->
+          <!--          <p>{{ form.biography.label_tag }}</p>-->
+          <!--          {{ form.biography }}  -->
         </div>
       </div>
-      <button type="submit" class="btn btn-secondary"> Вибрати</button>
+    
     </form>
   
   </div>

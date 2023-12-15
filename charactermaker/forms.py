@@ -60,3 +60,4 @@ class MyForm(forms.Form):
     biography = forms.CharField(widget=forms.Textarea, label="Біографія")
 
 
+

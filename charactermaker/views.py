@@ -4,6 +4,8 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from .forms import MyForm
 import os
+import cgi
+
 from random import randint
 
 static_data_path = os.path.join(os.path.dirname(__file__), "../staticData")
@@ -62,9 +64,16 @@ def charactermaker(request):
 
 
 def page(request):
+    if request.method == 'POST':
+        equip_keys = [request.POST.get("1"), request.POST.get("2"), request.POST.get("3")]
 
+        print(equip_keys)
+        return HttpResponse(request)
     # TODO: add func "select_features" in models
+
+    equipment = CLASSES[TEMP_CHAR["class"]]["start_equipment"]
     subclasses = []
+    class_ = CLASSES[TEMP_CHAR["class"]]
     ideals = []
     traits = []
     bonds = []
@@ -76,7 +85,12 @@ def page(request):
             if sub["class_id"] == CLASSES[TEMP_CHAR["class"]]["class_id"]:
                 subclasses.append(sub["subclass_name"])
 
-    return render(request, 'usersguid/page.html', {"subclasses": subclasses})
+    return render(request, 'usersguid/page.html', {"start_equipment": equipment,
+                                                   "subclasses": subclasses, "class": class_})
+
+
+def page2(request):
+    return HttpResponse(request)
 
 # {% url 'charactermaker:page' race.race_eng_name, subrace.subrace_eng_name%}
 # {% url 'charactermaker:page' class.class_eng_name %}
