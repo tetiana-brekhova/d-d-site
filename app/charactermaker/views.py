@@ -34,12 +34,12 @@ with open(f"{static_data_path}/classes/subclasses.json") as class_file:
     SUBCLASSES = json.load(class_file)
 
 
-# def ability_score():
-#     while True:
-#         ability_score = sorted([randint(1, 6), randint(1, 6), randint(1, 6), randint(1, 6)])
-#         abil = ability_score[1] + ability_score[2] + ability_score[3]
-#         if abil > 3:
-#             return abil
+def ability_score():
+    while True:
+        ability_score = sorted([randint(1, 6), randint(1, 6), randint(1, 6), randint(1, 6)])
+        abil = ability_score[1] + ability_score[2] + ability_score[3]
+        if abil > 3:
+            return abil
 
 
 def charactermaker(request):
