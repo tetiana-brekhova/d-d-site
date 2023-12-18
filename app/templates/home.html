@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Site{% endblock %}
+
+{% block content %}
+{% load static %}
+
+    <div class="2xl:container 2xl:mx-auto sm:py-5 sm:px-1 py-5 px-1">
+      <div class="flex items-center justify-between px-6 py-3">
+        <h2 class="section-name text-gray"> Make your choice... </h2>
+
+        <div class="overflow-x-auto">
+          <div class="master-guid-link">
+            <a href=#> <h3> Masters guid </h3> </a>
+            <a href=# > <img class="section-image" src="{% static 'img/masters.png' %}"></a>
+            <p>Some description</p>
+          </div>
+          <div class="player-guid-link">
+            <a href=#> <h3> Players guid </h3> </a>
+            {% load static %}
+            <a id="playersimg" href=# > <img class="section-image" src="{% static 'img/players.png' %}"></a>
+            <p>Some description</p>
+          </div>
+        </div>
+        <div class="blog-link">
+            <a href=#> <h3> Blog </h3> </a>
+            {% load static %}
+            <a href=# > <img class="section-image" src="{% static 'img/blog.jpg' %}"></a>
+            <p>Some description</p>
+          </div>
+
+      </div>
+    </div>
+
+{% endblock %}

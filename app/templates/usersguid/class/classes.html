@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Site{% endblock %}
+
+{% block content %}
+{% load static %}
+
+  <div class="2xl:container 2xl:mx-auto sm:py-5 sm:px-1 py-5 px-1">
+    <div class="flex items-center justify-between px-6 py-3">
+      <h2 class="section-name text-gray"> Класи </h2>
+        <div class="classes overflow-x-auto">
+          {% csrf_token %}
+          {% for value in context %}
+            <div>
+              <a href="{% url 'usersguid:class'  value.class_eng_name %}"> <img class="section-image" src="{% static  value.img_path %}" ></a>
+              <a href="{% url 'usersguid:class'  value.class_eng_name %}"> <h3 class="race-title"> {{ value.class_name }} </h3> </a>
+              <p class="description">
+              {{ value.description }} </p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+{% endblock %}
