@@ -8,52 +8,68 @@
 <div class="2xl:container 2xl:mx-auto sm:py-5 sm:px-1 py-5 px-1">
   <div class="flex items-center justify-between px-6 py-3">
     <h2 class="section-name text-gray"> Виберіть \ </h2>
-    
-    
+
+
     <form method="post">
       {% csrf_token %}
       <div class="overflow-x-auto">
         <div class="maker">
-          <hr>
           <h3>Класові особливості</h3>
-          {{ form.as_p }}
-          
+
+          {% if subclasses %}
+          <p>Виберіть підклас</p>
+          <select name="subclass">
+            {% for id, subclass in subclasses %}
+            <option value={{id}}>{{subclass}}</option>
+            {% endfor %}
+          </select>
+          {% endif %}
           <div>
             <p>броня та зброя</p>
-            <form name="equip" method="post">
-              {% for equipment in class.start_equipment %}
-              {% if equipment.a %}
-              {% csrf_token %}
-              
-              <select name="{{equipment.num}}">
-                <option value="a">{{equipment.a}}</option>
-                <option value="b">{{equipment.b}}</option>
-                {% if equipment.c %}
-                <option value="c">{{equipment.c}}</option>
-                {% endif %}
-              </select>
-              <br><br>
-              
+            {% for equipment in start_equipment %}
+            {% if equipment.a %}
+
+            <select name="{{equipment.num}}">
+              <option value="a">{{equipment.a}}</option>
+              <option value="b">{{equipment.b}}</option>
+              {% if equipment.c %}
+              <option value="c">{{equipment.c}}</option>
               {% endif %}
-              {% endfor %}
-            </form>
-            <button type="submit" class="btn btn-secondary"> Вибрати</button>
-            
+            </select>
+            <br><br>
+
+            {% endif %}
+            {% endfor %}
+
             <br>
             навичкиб ремесла і т.д.
             <br>
             <!--            {{ form.backgrounds.label_tag }}-->
             <!--            {{ form.backgrounds }}-->
-            
+
             <br>
-          
+
           </div>
         </div>
         <div class="maker">
           <h3>Персональні особливості </h3>
-          
-          <div class="chr_name">
+
+          <div>
             ідеали, страхи...
+
+            <p>
+              Виберіть {{ ability.num }} навички
+            </p>
+
+            {% for key, val in ability.options %}
+            <div>
+              <label>
+                <input type="checkbox" name="ability" value="{{key}}">
+                {{val}}
+              </label>
+            </div>
+
+            {% endfor %}
           </div>
           <!--          <p>{{ form.appearance.label_tag }}</p>-->
           <!--          {{ form.appearance }}-->
@@ -62,10 +78,12 @@
           <!--          {{ form.biography }}  -->
         </div>
       </div>
-    
+
+      <button type="submit" class="btn btn-secondary"> Вибрати</button>
     </form>
-  
+
   </div>
+
 </div>
 
 

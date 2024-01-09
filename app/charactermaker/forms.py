@@ -42,18 +42,12 @@ class MyForm(forms.Form):
                                   )
     backgrounds = forms.ChoiceField(
         widget=forms.Select,
-        choices=[(s["eng_name"], s["name"]) for s in BACKGROUNDS["backgrounds"]],
+        choices=[(BACKGROUNDS["backgrounds"][v]["eng_name"], BACKGROUNDS["backgrounds"][v]["name"]) for v in BACKGROUNDS["backgrounds"]],
         label="Передісторія"
     )
     chr_name = forms.CharField(widget=forms.Textarea, label="Ім'я")
     alignment = forms.ChoiceField(widget=forms.Select,
-                                  choices=[("Законно-добрий", "Законно-добрий"),
-                                           ("Законно-нейтральний", "Законно-нейтральний"),
-                                           ("Законно-злий", "Законно-злий"), ("Нейтрально-добрий", "Нейтрально-добрий"),
-                                           ("Нейтральний", "Нейтральний"), ("Нейтрально-злий", "Нейтрально-злий"),
-                                           ("Хаотично-добрий", "Хаотично-добрий"),
-                                           ("Хаотично-нейтральний", "Хаотично-нейтральний"),
-                                           ("Хаотично-злий", "Хаотично-злий")],
+                                  choices=[(BACKGROUNDS["alignments"][v], BACKGROUNDS["alignments"][v]["name"]) for v in BACKGROUNDS["alignments"]],
                                   label="Світогляд"
                                   )
     appearance = forms.CharField(widget=forms.Textarea, label="Зовнішність")

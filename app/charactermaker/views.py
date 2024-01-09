@@ -5,8 +5,8 @@ from django.http import HttpResponseRedirect, HttpResponse
 from .forms import MyForm
 import os
 import cgi
+from .help_func import *
 
-from random import randint
 
 static_data_path = os.path.join(os.path.dirname(__file__), "../staticData")
 
@@ -34,13 +34,6 @@ with open(f"{static_data_path}/classes/subclasses.json") as class_file:
     SUBCLASSES = json.load(class_file)
 
 
-def ability_score():
-    while True:
-        ability_score = sorted([randint(1, 6), randint(1, 6), randint(1, 6), randint(1, 6)])
-        abil = ability_score[1] + ability_score[2] + ability_score[3]
-        if abil > 3:
-            return abil
-
 
 def charactermaker(request):
     if request.method == 'POST':
@@ -64,33 +57,25 @@ def charactermaker(request):
 
 
 def page(request):
-    if request.method == 'POST':
-        equip_keys = [request.POST.get("1"), request.POST.get("2"), request.POST.get("3")]
 
-        print(equip_keys)
-        return HttpResponse(request)
     # TODO: add func "select_features" in models
 
+    if request.method == 'POST':
+        # equip_keys = [request.POST.get("subclass")]
+        # print(request.POST.getlist("ability"))
+        return HttpResponse(request)
+
+
     equipment = CLASSES[TEMP_CHAR["class"]]["start_equipment"]
-    subclasses = []
-    class_ = CLASSES[TEMP_CHAR["class"]]
+    subclasses = subclasses_for_class(TEMP_CHAR, CLASSES, SUBCLASSES)
     ideals = []
     traits = []
     bonds = []
     flaws = []
-    equip = []
-    abil = []
-    if int(TEMP_CHAR["level"]) >= CLASSES[TEMP_CHAR["class"]]["chose_subclass_level"]:
-        for sub in SUBCLASSES:
-            if sub["class_id"] == CLASSES[TEMP_CHAR["class"]]["class_id"]:
-                subclasses.append(sub["subclass_name"])
-
+    ability = get_abilities(CLASSES[TEMP_CHAR["class"]]["proficiencies"][3])
     return render(request, 'usersguid/page.html', {"start_equipment": equipment,
-                                                   "subclasses": subclasses, "class": class_})
+                                                   "subclasses": subclasses, "ability": ability})
 
-
-def page2(request):
-    return HttpResponse(request)
 
 # {% url 'charactermaker:page' race.race_eng_name, subrace.subrace_eng_name%}
 # {% url 'charactermaker:page' class.class_eng_name %}

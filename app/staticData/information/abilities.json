@@ -1,74 +1,195 @@
 {
-  "Athletics": {
-    "base_skill": "strength",
-    "translate": "Атлетика"
+  "characteristics": {
+    "Strength": "Cила",
+    "Dexterity": "Спритніть",
+    "Constitution": "Тілобудова",
+    "Intelligence": "Інтелект",
+    "Wisdom": "Мудрість",
+    "Charisma": "Харизма"
   },
-  "Acrobatics": {
-    "base_skill": "dexterity",
-    "translate": "Акробатика"
+  "abilities": {
+    "Athletics": {
+      "base_skill": "Strength",
+      "translate": "Атлетика"
+    },
+    "Acrobatics": {
+      "base_skill": "Dexterity",
+      "translate": "Акробатика"
+    },
+    "Sleight of Hand": {
+      "base_skill": "Dexterity",
+      "translate": "Спритність рук"
+    },
+    "Stealth": {
+      "base_skill": "Dexterity",
+      "translate": "Непомітність"
+    },
+    "Arcana": {
+      "base_skill": "Intelligence",
+      "translate": "Магія"
+    },
+    "History": {
+      "base_skill": "Intelligence",
+      "translate": " Історія"
+    },
+    "Investigation": {
+      "base_skill": "Intelligence",
+      "translate": "Розслідування"
+    },
+    "Nature": {
+      "base_skill": "Intelligence",
+      "translate": "Природа"
+    },
+    "Religion": {
+      "base_skill": "Intelligence",
+      "translate": "Релігія"
+    },
+    "Animal Handling": {
+      "base_skill": "Wisdom",
+      "translate": "Поводження з тваринами"
+    },
+    "Insight": {
+      "base_skill": "Wisdom",
+      "translate": "Проникливість"
+    },
+    "Medicine": {
+      "base_skill": "Wisdom",
+      "translate": "Медицина"
+    },
+    "Perception": {
+      "base_skill": "Wisdom",
+      "translate": "Сприйняття"
+    },
+    "Survival": {
+      "base_skill": "Wisdom",
+      "translate": "Виживання"
+    },
+    "Deception": {
+      "base_skill": "Charisma",
+      "translate": "Обман"
+    },
+    "Intimidation": {
+      "base_skill": "Charisma",
+      "translate": "Залякування"
+    },
+    "Performance": {
+      "base_skill": "Charisma",
+      "translate": "Виступ"
+    },
+    "Persuasion": {
+      "base_skill": "Charisma",
+      "translate": "Переконання"
+    }
   },
-  "Sleight of Hand": {
-    "base_skill": "dexterity",
-    "translate": "Спритність рук"
-  },
-  "Stealth": {
-    "base_skill": "dexterity",
-    "translate": "Стелс"
-  },
-  "Arcana": {
-    "base_skill": "intelligence",
-    "translate": "Магія"
-  },
-  "History": {
-    "base_skill": "intelligence",
-    "translate": " Історія"
-  },
-  "Investigation": {
-    "base_skill": "intelligence",
-    "translate": "Розслідування"
-  },
-  "Nature": {
-    "base_skill": "intelligence",
-    "translate": "Природа"
-  },
-  "Religion": {
-    "base_skill": "intelligence",
-    "translate": "Релігія"
-  },
-  "Animal Handling": {
-    "base_skill": "wisdom",
-    "translate": "Поводження з тваринами"
-  },
-  "Insight": {
-    "base_skill": "wisdom",
-    "translate": "Проникливість"
-  },
-  "Medicine": {
-    "base_skill": "wisdom",
-    "translate": "Медицина"
-  },
-  "Perception": {
-    "base_skill": "wisdom",
-    "translate": "Сприйняття"
-  },
-  "Survival": {
-    "base_skill": "wisdom",
-    "translate": "Виживання"
-  },
-  "Deception": {
-    "base_skill": "charisma",
-    "translate": "Обман"
-  },
-  "Intimidation":{
-    "base_skill": "charisma",
-    "translate": "Залякування"
-  },
-  "Performance": {
-    "base_skill": "charisma",
-    "translate": "Виступ"
-  },
-  "Persuasion":{
-    "base_skill": "charisma",
-    "translate": "Переконання"
+  "tools": {
+    "Artisan’s tools": {
+      "name": "",
+      "description": "",
+      "cost": "",
+      "options": [
+        "Alchemist’s supplies",
+        "Brewer’s supplies",
+        "Calligrapher's supplies",
+        "Carpenter’s tools",
+        "Cartographer’s tools",
+        "Cobbler’s tools",
+        "Cook’s utensils",
+        "Glassblower’s tools",
+        "Jeweler’s tools",
+        "Leatherworker’s tools",
+        "Mason’s tools",
+        "Painter’s supplies",
+        "Potter’s tools",
+        "Smith’s tools",
+        "Tinker’s tools",
+        "Weaver’s tools",
+        "Woodcarver's tools"
+      ]
+    },
+    "Alchemist’s supplies": {
+      "name": "",
+      "description": "",
+      "cost": ""
+    },
+    "Brewer’s supplies": {
+      "name": "",
+      "description": "",
+      "cost": ""
+    },
+    "Calligrapher's supplies": {
+      "name": "",
+      "description": "",
+      "cost": ""
+    },
+    "Carpenter’s tools": {
+      "name": "",
+      "description": "",
+      "cost": ""
+    },
+    "Cartographer’s tools": {
+      "name": "",
+      "description": "",
+      "cost": ""
+    },
+    "Cobbler’s tools": {
+      "name": "",
+      "description": "",
+      "cost": ""
+    },
+    "Cook’s utensils": {
+      "name": "",
+      "description": "",
+      "cost": ""
+    },
+    "Glassblower’s tools": {
+      "name": "",
+      "description": "",
+      "cost": ""
+    },
+    "Jeweler’s tools": {
+      "name": "",
+      "description": "",
+      "cost": ""
+    },
+    "Leatherworker’s tools": {
+      "name": "",
+      "description": "",
+      "cost": ""
+    },
+    "Mason’s tools": {
+      "name": "",
+      "description": "",
+      "cost": ""
+    },
+    "Painter’s supplies": {
+      "name": "",
+      "description": "",
+      "cost": ""
+    },
+    "Potter’s tools": {
+      "name": "",
+      "description": "",
+      "cost": ""
+    },
+    "Smith’s tools": {
+      "name": "",
+      "description": "",
+      "cost": ""
+    },
+    "Tinker’s tools": {
+      "name": "",
+      "description": "",
+      "cost": ""
+    },
+    "Weaver’s tools ": {
+      "name": "",
+      "description": "",
+      "cost": ""
+    },
+    "Woodcarver's tools": {
+      "name": "",
+      "description": "",
+      "cost": ""
+    }
   }
 }
