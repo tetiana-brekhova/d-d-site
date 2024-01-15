@@ -33,6 +33,8 @@ with open(f"{static_data_path}/classes/classes.json") as class_file:
 with open(f"{static_data_path}/classes/subclasses.json") as class_file:
     SUBCLASSES = json.load(class_file)
 
+with open(f"{static_data_path}/information/character_pesonality.json") as class_file:
+    BACKGROUNDS = json.load(class_file)
 
 
 def charactermaker(request):
@@ -64,17 +66,14 @@ def page(request):
         # equip_keys = [request.POST.get("subclass")]
         # print(request.POST.getlist("ability"))
         return HttpResponse(request)
-
-
     equipment = CLASSES[TEMP_CHAR["class"]]["start_equipment"]
     subclasses = subclasses_for_class(TEMP_CHAR, CLASSES, SUBCLASSES)
-    ideals = []
-    traits = []
-    bonds = []
-    flaws = []
+    personality = BACKGROUNDS["backgrounds"][TEMP_CHAR["backgrounds"]]
     ability = get_abilities(CLASSES[TEMP_CHAR["class"]]["proficiencies"][3])
+    subraces = [(subrsce["subrace_id"], subrsce["subrace_name"]) for subrsce in SUBRACES if int(subrsce["race_id"]) == int(TEMP_CHAR["race"])]
     return render(request, 'usersguid/page.html', {"start_equipment": equipment,
-                                                   "subclasses": subclasses, "ability": ability})
+                                                   "subclasses": subclasses, "ability": ability,
+                                                   "personality": personality, "subraces": subraces})
 
 
 # {% url 'charactermaker:page' race.race_eng_name, subrace.subrace_eng_name%}

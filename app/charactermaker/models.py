@@ -3,19 +3,22 @@ from django.db import models
 
 class Character(models.Model):
     name = models.CharField(blank=True, max_length=128)
-    sex = models.CharField(blank=True, max_length=128)
-    age = models.IntegerField(blank=True)
-    start_characteristics = {}
-    bonus_characteristics = {}
-    languages = []
+    # sex = models.CharField(blank=True, max_length=128)
+    # age = models.IntegerField(blank=True)
     appearance = models.CharField(blank=True, max_length=10000)
     backstory = models.CharField(blank=True, max_length=10000)
-    size = ""
     level = models.IntegerField()
     class_ = ""
     subclass = ""
     race = ""
     subrsce = ""
+
+
+
+    start_characteristics = {}
+    bonus_characteristics = {}
+    languages = []
+    size = ""
     equipment = ""
     skills = ""
     armor_class = ""

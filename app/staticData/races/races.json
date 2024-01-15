@@ -1,5 +1,5 @@
-[
-  {
+{
+  "aarakocra": {
     "race_id": 1,
     "race_eng_name": "aarakocra",
     "race_name": "Ааракокра",
@@ -67,7 +67,7 @@
     ],
     "subraces": false
   },
-  {
+  "aasimar": {
     "race_id": 2,
     "race_eng_name": "aasimar",
     "race_name": "Аасімар ",
@@ -145,7 +145,7 @@
     ],
     "subraces": true
   },
-  {
+  "bugbear": {
     "race_id": 3,
     "race_eng_name": "bugbear",
     "race_name": "Багбір",
@@ -195,7 +195,7 @@
     ],
     "subraces": false
   },
-  {
+  "centaur": {
     "race_id": 4,
     "race_eng_name": "centaur",
     "race_name": "Кентаври",
@@ -241,7 +241,7 @@
     ],
     "subraces": false
   },
-  {
+  "changeling": {
     "race_id": 5,
     "race_eng_name": "changeling",
     "race_name": "Перемінник",
@@ -320,4 +320,4 @@
     ],
     "subraces": false
   }
-]
+}

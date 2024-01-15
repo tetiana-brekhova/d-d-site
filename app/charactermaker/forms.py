@@ -18,14 +18,7 @@ with open(f"{static_data_path}/information/character_pesonality.json") as class_
 
 
 class MyForm(forms.Form):
-    CHR_RACE = []
-    for race in RACES:
-        if race["subraces"]:
-            for subrace in SUBRACES:
-                if race["race_id"] == subrace["race_id"]:
-                    CHR_RACE.append((subrace["subrace_eng_name"], subrace["subrace_name"]))
-        else:
-            CHR_RACE.append((race["race_eng_name"], race["race_name"]))
+    CHR_RACE = [(RACES[r]["race_id"], RACES[r]["race_name"]) for r in RACES]
     chr_race = forms.ChoiceField(
         widget=forms.Select,
         choices=CHR_RACE, label="Раса"

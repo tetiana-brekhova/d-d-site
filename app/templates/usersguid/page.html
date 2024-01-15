@@ -7,13 +7,22 @@
 
 <div class="2xl:container 2xl:mx-auto sm:py-5 sm:px-1 py-5 px-1">
   <div class="flex items-center justify-between px-6 py-3">
-    <h2 class="section-name text-gray"> Виберіть \ </h2>
+    <!--    <h2 class="section-name text-gray"> </h2>-->
 
 
     <form method="post">
       {% csrf_token %}
       <div class="overflow-x-auto">
         <div class="maker">
+
+          <p>Виберіть підрасу</p>
+
+          <select name="subraces">
+            {% for id, subrace in subraces %}
+            <option value={{id}}>{{subrace}}</option>
+            {% endfor %}
+          </select>
+
           <h3>Класові особливості</h3>
 
           {% if subclasses %}
@@ -44,19 +53,6 @@
             <br>
             навичкиб ремесла і т.д.
             <br>
-            <!--            {{ form.backgrounds.label_tag }}-->
-            <!--            {{ form.backgrounds }}-->
-
-            <br>
-
-          </div>
-        </div>
-        <div class="maker">
-          <h3>Персональні особливості </h3>
-
-          <div>
-            ідеали, страхи...
-
             <p>
               Виберіть {{ ability.num }} навички
             </p>
@@ -70,6 +66,62 @@
             </div>
 
             {% endfor %}
+
+            <br>
+
+          </div>
+        </div>
+        <div class="maker">
+          <h3>Персональні особливості </h3>
+
+          ідеали, страхи...
+          <div>
+
+
+            {% if personality.else_options %}
+            {{ personality.else_options.name }}:
+            <select name="else_options">
+              {% for option in personality.else_options.version %}
+              <option value={{option}}> {{ option }}</option>
+              {% endfor %}
+            </select>
+            {% endif %}
+
+            <br>
+
+
+            риси:
+            <select name="trait">
+              {% for trait in personality.traits %}
+              <option value={{trait.id}}> {{ trait.trait }}</option>
+              {% endfor %}
+            </select>
+
+            <br>
+
+            ідеали:
+            <select name="ideal">
+              {% for ideal in personality.ideals %}
+              <option value={{ideal.id}}> {{ ideal.ideal }}</option>
+              {% endfor %}
+            </select>
+            <br>
+
+            переконання:
+            <select name="bond">
+              {% for bond in personality.bonds %}
+              <option value={{bond.id}}> {{ bond.bond }}</option>
+              {% endfor %}
+            </select>
+            <br>
+
+            недоліки:
+            <select name="flaw">
+              {% for flaw in personality.flaws %}
+              <option value={{flaw.id}}> {{ flaw.flaw }}</option>
+              {% endfor %}
+            </select>
+
           </div>
           <!--          <p>{{ form.appearance.label_tag }}</p>-->
           <!--          {{ form.appearance }}-->
