@@ -11,7 +11,7 @@
         <div class="classes overflow-x-auto">
           {% csrf_token %}
           {% for value in context %}
-            <div>
+            <div class="one-class">
               <a href="{% url 'usersguid:class'  value.class_eng_name %}"> <img class="section-image" src="{% static  value.img_path %}" ></a>
               <a href="{% url 'usersguid:class'  value.class_eng_name %}"> <h3 class="race-title"> {{ value.class_name }} </h3> </a>
               <p class="description">

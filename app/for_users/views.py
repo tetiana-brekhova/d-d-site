@@ -12,12 +12,11 @@ with open(f"{static_data_path}/races/subraces.json") as race_file:
     SUBRACES = json.load(race_file)
 
 with open(f"{static_data_path}/classes/classes.json") as class_file:
-    classes = json.load(class_file)
-    CLASSES = [classes[c] for c in classes]
+    CLASSES = json.load(class_file)
 
 
-with open(f"{static_data_path}/classes/subclasses.json") as class_file:
-    SUBCLASSES = json.load(class_file)
+with open(f"{static_data_path}/classes/subclasses.json") as subclass_file:
+    SUBCLASSES = json.load(subclass_file)
 
 with open(f"{static_data_path}/spells/spells.json") as spell_file:
     SPELLS = json.load(spell_file)
@@ -28,27 +27,27 @@ def usersguid(request):
 
 
 def races(request):
-    context = RACES
+    context = [RACES[r] for r in RACES]
     return render(request, 'usersguid/race/races.html', {"context": context})
 
 
 def show_race(request, race):
     for r in RACES:
-        if r["race_eng_name"] == race:
-            correct_race = r
+        if RACES[r]["race_eng_name"] == race:
+            correct_race = RACES[r]
     return render(request, 'usersguid/race/race.html', {"context": correct_race,
                                                         "subraces": SUBRACES})
 
 
 def classes(request):
-    context = CLASSES
+    context = [CLASSES[c] for c in CLASSES]
     return render(request, 'usersguid/class/classes.html', {"context": context})
 
 
 def show_class(request, classs):
     for c in CLASSES:
-        if c["class_eng_name"] == classs:
-            correct_class = c
+        if CLASSES[c]["class_eng_name"] == classs:
+            correct_class = CLASSES[c]
     return render(request, 'usersguid/class/class.html', {"context": correct_class,
                                                           "subclasses": SUBCLASSES})
 

@@ -8,7 +8,7 @@
   <div class="2xl:container 2xl:mx-auto sm:py-5 sm:px-1 py-5 px-1">
     <div class="flex items-center justify-between px-6 py-3">
       <h2 class="section-name text-gray"> Раси </h2>
-        <div class="classes">
+        <div class="classes overflow-x-auto">
           {% csrf_token %}
           {% for value in context %}
             <div class="one-class">
@@ -18,7 +18,6 @@
               {{ value.description }} </p>
             </div>
           {% endfor %}
-
         </div>
       </div>
     </div>
