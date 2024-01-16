@@ -11,3 +11,4 @@ services:
     ports:
       - "8000:8000"
 
+#docker compose up --force-recreate --build
