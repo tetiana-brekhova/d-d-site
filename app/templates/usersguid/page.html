@@ -23,8 +23,6 @@
             {% endfor %}
           </select>
 
-          <h3>Класові особливості</h3>
-
           {% if subclasses %}
           <p>Виберіть підклас</p>
           <select name="subclass">
@@ -33,6 +31,9 @@
             {% endfor %}
           </select>
           {% endif %}
+          <h3>Класові особливості</h3>
+
+
           <div>
             <p>броня та зброя</p>
             {% for equipment in start_equipment %}
@@ -45,7 +46,7 @@
               <option value="c">{{equipment.c}}</option>
               {% endif %}
             </select>
-            <br><br>
+            <br>
 
             {% endif %}
             {% endfor %}
@@ -74,7 +75,6 @@
         <div class="maker">
           <h3>Персональні особливості </h3>
 
-          ідеали, страхи...
           <div>
 
 
@@ -88,7 +88,6 @@
             {% endif %}
 
             <br>
-
 
             риси:
             <select name="trait">

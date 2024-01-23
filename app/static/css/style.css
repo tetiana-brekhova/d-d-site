@@ -201,6 +201,11 @@ select{
   width: auto;
 }
 
+#id_sex{
+  margin-top: -10px;
+  width: auto;
+}
+
 option{
   background-color: #CCC8C2;
   border: 10px;

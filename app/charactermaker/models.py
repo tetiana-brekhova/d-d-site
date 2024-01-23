@@ -3,18 +3,19 @@ from django.db import models
 
 class Character(models.Model):
     name = models.CharField(blank=True, max_length=128)
-    # sex = models.CharField(blank=True, max_length=128)
-    # age = models.IntegerField(blank=True)
+    classs = models.CharField(blank=True, max_length=100)
+    race = models.CharField(blank=True, max_length=100)
+    sex = models.CharField(blank=True, max_length=128)
+    backgrounds = models.CharField(blank=True, max_length=10000)
+    alignment = models.CharField(blank=True, max_length=10000)
     appearance = models.CharField(blank=True, max_length=10000)
-    backstory = models.CharField(blank=True, max_length=10000)
+    biography = models.CharField(blank=True, max_length=10000)
     level = models.IntegerField()
-    class_ = ""
-    subclass = ""
-    race = ""
-    subrsce = ""
 
+    # age = models.IntegerField(blank=True)
 
-
+    subrsce = models.CharField(blank=True, max_length=100)
+    subclass = models.CharField(blank=True, max_length=100)
     start_characteristics = {}
     bonus_characteristics = {}
     languages = []
@@ -30,8 +31,8 @@ class Character(models.Model):
     user = ""
 
 
-class Meta:
-    ordering = ('name',)
+# class Meta:
+#     ordering = ('name',)
 
 
 def __str__(self):
@@ -48,49 +49,47 @@ def __repr__(self):
 
 
 @staticmethod
-def get_by_id(post_id):
-    return Post.objects.get(id=post_id) if Post.objects.filter(id=post_id) else None
+def get_by_id(character_id):
+    return Character.objects.get(id=character_id) if Character.objects.filter(id=character_id) else None
 
 
 @staticmethod
-def delete_by_id(post_id):
-    if Post.get_by_id(post_id) is None:
+def delete_by_id(character_id):
+    if Character.get_by_id(character_id) is None:
         return False
-    Post.objects.get(id=post_id).delete()
+    Character.objects.get(id=character_id).delete()
     return True
 
 
 @staticmethod
-def create(post_name, post_body, post_data, post_image):
-    if len(post_name) > 128:
-        return None
-    post = Post()
-    post.post_name = post_name
-    post.post_body = post_body
-    post.post_data = post_data
-    post.post_image = post_image
+def create(name, classs, race, sex, backgrounds, alignment, appearance, biography, level):
+    character = Character()
+    character.name = name
+    character.classs = classs
+    character.race = race
+    character.sex = sex
+    character.backgrounds = backgrounds
+    character.alignment = alignment
+    character.appearance = appearance
+    character.biography = biography
+    character.level = level
 
-    post.save()
-    # if (author is not None):
-    #     for elem in author:
-    #         post.author.add(elem)
-    #     post.save()
-    # return post
+# TODO: add else fields
+
+    character.save()
 
 
-def update(self, post_name, post_body, post_image):
-    if post_name is not None:
-        self.name = post_name
 
-    if post_body is not None:
-        self.description = post_body
+def update(self):
+    # TODO: update for all fields
+    self.save()
 
-    if post_image is not None:
-        self.count = post_image
 
+def level_up(self):
+    # TODO: level_up for character
     self.save()
 
 
 @staticmethod
 def get_all():
-    return list(Post.objects.all())
+    return list(Character.objects.all())

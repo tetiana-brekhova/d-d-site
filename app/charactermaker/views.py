@@ -3,10 +3,10 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from .forms import MyForm
+from .models import Character
 import os
 import cgi
 from .help_func import *
-
 
 static_data_path = os.path.join(os.path.dirname(__file__), "../staticData")
 
@@ -14,11 +14,14 @@ TEMP_CHAR = {
     "name": "",
     "class": "",
     "race": "",
+    "sex": "",
     "backgrounds": "",
     "alignment": "",
     "appearance": "",
     "biography": "",
     "level": ""
+
+    # TODO: add else fields
 }
 
 with open(f"{static_data_path}/races/races.json") as race_file:
@@ -41,12 +44,10 @@ def charactermaker(request):
     if request.method == 'POST':
         form = MyForm(request.POST)
         if form.is_valid():
-
-            # TODO: create obj in models
-
             TEMP_CHAR["name"] = form.cleaned_data.get("chr_name")
             TEMP_CHAR["class"] = form.cleaned_data.get('chr_class')
             TEMP_CHAR["race"] = form.cleaned_data.get('chr_race')
+            TEMP_CHAR["sex"] = form.cleaned_data.get('sex')
             TEMP_CHAR["backgrounds"] = form.cleaned_data.get("backgrounds")
             TEMP_CHAR["alignment"] = form.cleaned_data.get("alignment")
             TEMP_CHAR["appearance"] = form.cleaned_data.get("appearance")
@@ -59,9 +60,6 @@ def charactermaker(request):
 
 
 def page(request):
-
-    # TODO: add func "select_features" in models
-
     if request.method == 'POST':
         # equip_keys = [request.POST.get("subclass")]
         # print(request.POST.getlist("ability"))
@@ -70,11 +68,16 @@ def page(request):
     subclasses = subclasses_for_class(TEMP_CHAR, CLASSES, SUBCLASSES)
     personality = BACKGROUNDS["backgrounds"][TEMP_CHAR["backgrounds"]]
     ability = get_abilities(CLASSES[TEMP_CHAR["class"]]["proficiencies"][3])
-    subraces = [(subrsce["subrace_id"], subrsce["subrace_name"]) for subrsce in SUBRACES if int(subrsce["race_id"]) == int(TEMP_CHAR["race"])]
+    subraces = [(subrsce["subrace_id"], subrsce["subrace_name"]) for subrsce in SUBRACES if
+                int(subrsce["race_id"]) == int(TEMP_CHAR["race"])]
+
     return render(request, 'usersguid/page.html', {"start_equipment": equipment,
                                                    "subclasses": subclasses, "ability": ability,
                                                    "personality": personality, "subraces": subraces})
 
+
+def agree_page():
+    pass
 
 # {% url 'charactermaker:page' race.race_eng_name, subrace.subrace_eng_name%}
 # {% url 'charactermaker:page' class.class_eng_name %}

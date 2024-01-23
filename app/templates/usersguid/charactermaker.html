@@ -8,8 +8,8 @@
 <div class="2xl:container 2xl:mx-auto sm:py-5 sm:px-1 py-5 px-1">
   <div class="flex items-center justify-between px-6 py-3">
     <h2 class="section-name text-gray"> Виберіть расу та клас </h2>
-    
-    
+
+
     <form method="post">
       {% csrf_token %}
       <div class="overflow-x-auto">
@@ -23,10 +23,9 @@
               <h3> Клас </h3>
               {{ form.chr_class }}
             </div>
-          
+
           </div>
           <hr>
-          <h3>Куби</h3>
           <div>
             {{ form.chr_level.label_tag }}
             {{ form.chr_level }}
@@ -36,28 +35,33 @@
             <br>
             {{ form.backgrounds.label_tag }}
             {{ form.backgrounds }}
-            
+
             <br>
-          
+            <hr>
+            <h3>Куби</h3>
+
           </div>
         </div>
         <div class="maker">
           <h3>Опис персонажа</h3>
-          
+
           <div class="chr_name">
             <p>{{ form.chr_name.label_tag }}</p>
             {{ form.chr_name }}
+
+            <p>{{ form.sex.label_tag }}</p>
+            {{ form.sex }}
           </div>
           <p>{{ form.appearance.label_tag }}</p>
           {{ form.appearance }}
-          
+
           <p>{{ form.biography.label_tag }}</p>
           {{ form.biography }}
         </div>
       </div>
       <button type="submit" class="btn btn-secondary"> Вибрати</button>
     </form>
-  
+
   </div>
 </div>
 

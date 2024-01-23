@@ -43,6 +43,10 @@ class MyForm(forms.Form):
                                   choices=[(BACKGROUNDS["alignments"][v], BACKGROUNDS["alignments"][v]["name"]) for v in BACKGROUNDS["alignments"]],
                                   label="Світогляд"
                                   )
+    sex = forms.ChoiceField(widget=forms.Select,
+                                  choices=[("woman", "жіноча"), ("man", "чоловіча")],
+                                  label="Стать"
+                                  )
     appearance = forms.CharField(widget=forms.Textarea, label="Зовнішність")
     biography = forms.CharField(widget=forms.Textarea, label="Біографія")
 
