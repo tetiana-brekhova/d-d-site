@@ -10,6 +10,8 @@ from .help_func import *
 
 static_data_path = os.path.join(os.path.dirname(__file__), "../staticData")
 
+# TODO: add else fields
+
 TEMP_CHAR = {
     "name": "",
     "class": "",
@@ -20,8 +22,6 @@ TEMP_CHAR = {
     "appearance": "",
     "biography": "",
     "level": ""
-
-    # TODO: add else fields
 }
 
 with open(f"{static_data_path}/races/races.json") as race_file:
@@ -56,7 +56,8 @@ def charactermaker(request):
         return redirect("charactermaker:page")
     else:
         form = MyForm()
-    return render(request, 'usersguid/charactermaker.html', {"form": form})
+        abil_dice = ability_score()
+    return render(request, 'usersguid/charactermaker.html', {"form": form, "dice": abil_dice})
 
 
 def page(request):
@@ -64,16 +65,16 @@ def page(request):
         # equip_keys = [request.POST.get("subclass")]
         # print(request.POST.getlist("ability"))
         return HttpResponse(request)
+    subraces = subraces_for_race(TEMP_CHAR, RACES, SUBRACES)
     equipment = CLASSES[TEMP_CHAR["class"]]["start_equipment"]
     subclasses = subclasses_for_class(TEMP_CHAR, CLASSES, SUBCLASSES)
     personality = BACKGROUNDS["backgrounds"][TEMP_CHAR["backgrounds"]]
     ability = get_abilities(CLASSES[TEMP_CHAR["class"]]["proficiencies"][3])
-    subraces = [(subrsce["subrace_id"], subrsce["subrace_name"]) for subrsce in SUBRACES if
-                int(subrsce["race_id"]) == int(TEMP_CHAR["race"])]
-
+    languages = get_languages(RACES[TEMP_CHAR["race"]], BACKGROUNDS, TEMP_CHAR)
     return render(request, 'usersguid/page.html', {"start_equipment": equipment,
                                                    "subclasses": subclasses, "ability": ability,
-                                                   "personality": personality, "subraces": subraces})
+                                                   "personality": personality, "subraces": subraces,
+                                                   "languages": languages})
 
 
 def agree_page():

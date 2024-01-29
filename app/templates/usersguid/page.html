@@ -12,28 +12,28 @@
 
     <form method="post">
       {% csrf_token %}
+      {% if subraces %}
+      <h5>Виберіть підрасу</h5>
+
+      <select name="subraces">
+        {% for id, subrace in subraces %}
+        <option value={{id}}>{{subrace}}</option>
+        {% endfor %}
+      </select>
+      {% endif %}
+
+
+      {% if subclasses %}
+      <h5>Виберіть підклас</h5>
+      <select name="subclass">
+        {% for id, subclass in subclasses %}
+        <option value={{id}}>{{subclass}}</option>
+        {% endfor %}
+      </select>
+      {% endif %}
       <div class="overflow-x-auto">
         <div class="maker">
-
-          <p>Виберіть підрасу</p>
-
-          <select name="subraces">
-            {% for id, subrace in subraces %}
-            <option value={{id}}>{{subrace}}</option>
-            {% endfor %}
-          </select>
-
-          {% if subclasses %}
-          <p>Виберіть підклас</p>
-          <select name="subclass">
-            {% for id, subclass in subclasses %}
-            <option value={{id}}>{{subclass}}</option>
-            {% endfor %}
-          </select>
-          {% endif %}
-          <h3>Класові особливості</h3>
-
-
+        <h3>Класові особливості</h3>
           <div>
             <p>броня та зброя</p>
             {% for equipment in start_equipment %}
@@ -120,13 +120,22 @@
               <option value={{flaw.id}}> {{ flaw.flaw }}</option>
               {% endfor %}
             </select>
+            <br>
+            {% if languages.num > 0%}
+            <p>
+              Виберіть {{ languages.num }} мови
+            </p>
 
+            {% for key, val in languages.options %}
+            <div>
+              <label>
+                <input type="checkbox" name="languages" value="{{key}}">
+                {{val}}
+              </label>
+            </div>
+            {% endfor %}
+            {% endif %}
           </div>
-          <!--          <p>{{ form.appearance.label_tag }}</p>-->
-          <!--          {{ form.appearance }}-->
-          <!--          -->
-          <!--          <p>{{ form.biography.label_tag }}</p>-->
-          <!--          {{ form.biography }}  -->
         </div>
       </div>
 

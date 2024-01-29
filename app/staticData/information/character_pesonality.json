@@ -22,7 +22,7 @@
       },
       "else_bonus": {
         "name": "Languages",
-        "val": "2 на вибір"
+        "val": 2
       },
       "else_options": {},
       "feature": {
@@ -572,6 +572,104 @@
     "Chaotic evil": {
       "name": "Хаотично-злий",
       "description": "Хаотичний злий персонаж, як правило, не поважає правил, життя інших людей або щось інше, крім власних бажань, які зазвичай егоїстичні та жорстокі. Вони високо цінують особисту свободу, але не дуже поважають життя чи свободу інших людей. Хаотичні злі персонажі погано працюють у групах, тому що вони обурюються, коли дають накази, і зазвичай не поводяться належним чином, якщо немає альтернативи. Приклади цього вирівнювання включають вищі форми нежиті (такі як лишаї ), жорстоких убивць, які б’ють заради задоволення, а не прибутку, демонів, червоних драконів і орків. "
+    }
+  },
+  "languages": {
+    "common": {
+      "translate": "Загальна",
+      "typical_speakers": [
+        "Люди"
+      ]
+    },
+    "dwarvish": {
+      "translate": "Дварфійська",
+      "typical_speakers": [
+        "Дварфи"
+      ]
+    },
+    "elvish": {
+      "translate": "Ельфійська",
+      "typical_speakers": [
+        "Ельфи"
+      ]
+    },
+    "giant": {
+      "translate": "Мова Гігантів",
+      "typical_speakers": [
+        "Огри, Гіганти"
+      ]
+    },
+    "gnomish": {
+      "translate": "Мова Гномів",
+      "typical_speakers": [
+        "Гноми"
+      ]
+    },
+    "goblin": {
+      "translate": "Гоблінська",
+      "typical_speakers": [
+        "Гобліноїди"
+      ]
+    },
+    "halfling": {
+      "translate": "Мова Напівросликів",
+      "typical_speakers": [
+        "Напіврослики"
+      ]
+    },
+    "orc": {
+      "translate": "Орчанська",
+      "typical_speakers": [
+        "Орки"
+      ]
+    },
+    "abyssal": {
+      "translate": "Мова Безодні",
+      "typical_speakers": [
+        "Демони"
+      ]
+    },
+    "celestial": {
+      "translate": "Небесна",
+      "typical_speakers": [
+        "Небожителі"
+      ]
+    },
+    "draconic": {
+      "translate": "Драконська",
+      "typical_speakers": [
+        "Дракони, Дракононароджені"
+      ]
+    },
+    "deep_speech": {
+      "translate": "Глибинна",
+      "typical_speakers": [
+        "Аболети"
+      ]
+    },
+    "infernal": {
+      "translate": "Пекельна",
+      "typical_speakers": [
+        "Дияволи"
+      ]
+    },
+    "primordial": {
+      "translate": "Первісна",
+      "typical_speakers": [
+        "Елементалі"
+      ]
+    },
+    "sylvan": {
+      "translate": "Сільван",
+      "typical_speakers": [
+        "Фейські істоти"
+      ]
+    },
+    "undercommon": {
+      "translate": "Підземна Мова",
+      "typical_speakers": [
+        "істоти Підзем'я"
+      ]
     }
   }
 }

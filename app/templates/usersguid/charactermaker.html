@@ -38,7 +38,25 @@
 
             <br>
             <hr>
-            <h3>Куби</h3>
+            <div>
+
+              <h3>Куби</h3>
+              <div class="dice_val_div">
+                {% for d in dice %}
+                <p id="dice_val">{{d}}</p>
+                {% endfor %}
+              </div>
+              <div class="overflow-x-auto">
+                <p>Сила</p> <input type="text" class="dice_input">
+                <p>Спритність</p> <input type="text" class="dice_input">
+                <p>Тілобудлва</p> <input type="text" class="dice_input">
+                <p>Інтелект</p> <input type="text" class="dice_input">
+                <p>Мудрість</p> <input type="text" class="dice_input">
+                <p>Харизма</p> <input type="text" class="dice_input">
+              </div>
+
+              * впищіть значення на ваш розсуд
+            </div>
 
           </div>
         </div>

@@ -55,6 +55,7 @@
       "Ааракокра",
       "Ауран"
     ],
+    "additional_languages": 0,
     "else_traits": [
       {
         "name": "Кігті",
@@ -121,6 +122,7 @@
       "Загальна",
       "Небесна"
     ],
+    "additional_languages": 0,
     "else_traits": [
       {
         "name": "Темнобачення",
@@ -171,6 +173,7 @@
       "Загальна",
       "Гоблінська"
     ],
+    "additional_languages": 0,
     "else_traits": [
       {
         "name": "Темнобачення",
@@ -221,6 +224,7 @@
       "Загальна",
       "Мова фей"
     ],
+    "additional_languages": 0,
     "else_traits": [
       {
         "name": "Зарядити",
@@ -305,9 +309,9 @@
       }
     ],
     "languages": [
-      "Загальна",
-      "2 інші на вибір"
+      "common"
     ],
+    "additional_languages": 2,
     "else_traits": [
       {
         "name": "Зміна форми",

@@ -206,6 +206,30 @@ select{
   width: auto;
 }
 
+#dice_val{
+  display: inline;
+  font-size: 1.3rem;
+  color: black;
+  text-indent: 25px;
+  text-align: justify;
+  font-style: italic;
+  font-family: cursive;
+  padding: 0.5em 0.75em;
+  border: 3px dashed #cc6600;
+  margin: 0em 0.5em;
+}
+
+.dice_val_div{
+  padding: 1em;
+}
+
+.dice_input{
+  text-align: center;
+  height:40px;
+  width:40px;
+  padding: 0;
+}
+
 option{
   background-color: #CCC8C2;
   border: 10px;

@@ -18,7 +18,7 @@ with open(f"{static_data_path}/information/character_pesonality.json") as class_
 
 
 class MyForm(forms.Form):
-    CHR_RACE = [(RACES[r]["race_id"], RACES[r]["race_name"]) for r in RACES]
+    CHR_RACE = [(r, RACES[r]["race_name"]) for r in RACES]
     chr_race = forms.ChoiceField(
         widget=forms.Select,
         choices=CHR_RACE, label="Раса"
