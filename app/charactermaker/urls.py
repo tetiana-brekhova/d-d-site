@@ -5,7 +5,8 @@ app_name = 'charactermaker'
 
 urlpatterns = [
     path('', views.charactermaker, name="charactermaker"),
-    path('page/', views.page, name="page"),
-    # path('character/', views.character, name="character"),
+    path('personality_creation/', views.personality_creation, name="personality_creation"),
+    path('spells_chooser/', views.spells_chooser, name="spells_chooser"),
+    path('agree_page/', views.agree_page, name="agree_page"),
 
 ]

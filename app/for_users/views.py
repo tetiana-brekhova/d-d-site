@@ -48,8 +48,9 @@ def show_class(request, classs):
     for c in CLASSES:
         if CLASSES[c]["class_eng_name"] == classs:
             correct_class = CLASSES[c]
+    subclasses = [SUBCLASSES[subclass] for subclass in SUBCLASSES if SUBCLASSES[subclass]["class_id"] == correct_class["class_id"]]
     return render(request, 'usersguid/class/class.html', {"context": correct_class,
-                                                          "subclasses": SUBCLASSES})
+                                                          "subclasses": subclasses})
 
 
 def personality(request):

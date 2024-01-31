@@ -21,8 +21,8 @@ def ability_score():
 
 def subclasses_for_class(TEMP_CHAR, CLASSES, SUBCLASSES):
     if int(TEMP_CHAR["level"]) >= CLASSES[TEMP_CHAR["class"]]["chose_subclass_level"]:
-        subclasses = [(subclass["subclass_id"], subclass["subclass_name"]) for subclass in SUBCLASSES if
-                      subclass["class_id"] == CLASSES[TEMP_CHAR["class"]]["class_id"]]
+        subclasses = [(subclass, SUBCLASSES[subclass]["subclass_name"]) for subclass in SUBCLASSES if
+                      SUBCLASSES[subclass]["class_id"] == CLASSES[TEMP_CHAR["class"]]["class_id"]]
         return subclasses
 
 

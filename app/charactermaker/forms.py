@@ -38,6 +38,12 @@ class MyForm(forms.Form):
         choices=[(BACKGROUNDS["backgrounds"][v]["eng_name"], BACKGROUNDS["backgrounds"][v]["name"]) for v in BACKGROUNDS["backgrounds"]],
         label="Передісторія"
     )
+    strength = forms.IntegerField(label="Сила", min_value=1, max_value=20)
+    dexterity = forms.IntegerField(label="Спритність", min_value=1, max_value=20)
+    constitution = forms.IntegerField(label="Тілобудлва", min_value=1, max_value=20)
+    intelligence = forms.IntegerField(label="Інтелект", min_value=1, max_value=20)
+    wisdom = forms.IntegerField(label="Мудрість", min_value=1, max_value=20)
+    charisma = forms.IntegerField(label="Харизма", min_value=1, max_value=20)
     chr_name = forms.CharField(widget=forms.Textarea, label="Ім'я")
     alignment = forms.ChoiceField(widget=forms.Select,
                                   choices=[(BACKGROUNDS["alignments"][v], BACKGROUNDS["alignments"][v]["name"]) for v in BACKGROUNDS["alignments"]],
@@ -49,6 +55,7 @@ class MyForm(forms.Form):
                                   )
     appearance = forms.CharField(widget=forms.Textarea, label="Зовнішність")
     biography = forms.CharField(widget=forms.Textarea, label="Біографія")
+
 
 
 

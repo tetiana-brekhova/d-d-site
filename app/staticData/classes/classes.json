@@ -221,9 +221,10 @@
         "options": []
       }
     ],
-    "spell_slots": [
-      {
-        "level": 1,
+    "spellcasting": true,
+    "spellcasting_level": 1,
+    "spell_slots": {
+      "level_1": {
         "spells_known": "",
         "cantrips_known": 2,
         "1st": 2,
@@ -232,8 +233,7 @@
         "4st": 0,
         "5st": 0
       },
-      {
-        "level": 2,
+      "level_2": {
         "spells_known": "",
         "cantrips_known": 2,
         "1st": 2,
@@ -242,8 +242,7 @@
         "4st": 0,
         "5st": 0
       },
-      {
-        "level": 3,
+      "level_3": {
         "spells_known": "",
         "cantrips_known": 2,
         "1st": 3,
@@ -252,8 +251,7 @@
         "4st": 0,
         "5st": 0
       },
-      {
-        "level": 4,
+      "level_4": {
         "spells_known": "",
         "cantrips_known": 2,
         "1st": 3,
@@ -262,8 +260,7 @@
         "4st": 0,
         "5st": 0
       },
-      {
-        "level": 5,
+      "level_5": {
         "spells_known": "",
         "cantrips_known": 2,
         "1st": 4,
@@ -272,8 +269,7 @@
         "4st": 0,
         "5st": 0
       },
-      {
-        "level": 6,
+      "level_6": {
         "spells_known": "",
         "cantrips_known": 2,
         "1st": 4,
@@ -282,8 +278,7 @@
         "4st": 0,
         "5st": 0
       },
-      {
-        "level": 7,
+      "level_7": {
         "spells_known": "",
         "cantrips_known": 2,
         "1st": 4,
@@ -292,8 +287,7 @@
         "4st": 0,
         "5st": 0
       },
-      {
-        "level": 8,
+      "level_8": {
         "spells_known": "",
         "cantrips_known": 2,
         "1st": 4,
@@ -302,8 +296,7 @@
         "4st": 0,
         "5st": 0
       },
-      {
-        "level": 9,
+      "level_9": {
         "spells_known": "",
         "cantrips_known": 2,
         "1st": 4,
@@ -312,8 +305,7 @@
         "4st": 0,
         "5st": 0
       },
-      {
-        "level": 10,
+      "level_10": {
         "spells_known": "",
         "cantrips_known": 3,
         "1st": 4,
@@ -322,8 +314,7 @@
         "4st": 0,
         "5st": 0
       },
-      {
-        "level": 11,
+      "level_11": {
         "spells_known": "",
         "cantrips_known": 3,
         "1st": 4,
@@ -332,8 +323,7 @@
         "4st": 0,
         "5st": 0
       },
-      {
-        "level": 12,
+      "level_12": {
         "spells_known": "",
         "cantrips_known": 3,
         "1st": 4,
@@ -342,8 +332,7 @@
         "4st": 0,
         "5st": 0
       },
-      {
-        "level": 13,
+      "level_13": {
         "spells_known": "",
         "cantrips_known": 3,
         "1st": 4,
@@ -352,8 +341,7 @@
         "4st": 1,
         "5st": 0
       },
-      {
-        "level": 14,
+      "level_14": {
         "spells_known": "",
         "cantrips_known": 4,
         "1st": 4,
@@ -362,8 +350,7 @@
         "4st": 1,
         "5st": 0
       },
-      {
-        "level": 15,
+      "level_15": {
         "spells_known": "",
         "cantrips_known": 4,
         "1st": 4,
@@ -372,8 +359,7 @@
         "4st": 2,
         "5st": 0
       },
-      {
-        "level": 16,
+      "level_16": {
         "spells_known": "",
         "cantrips_known": 4,
         "1st": 4,
@@ -382,8 +368,7 @@
         "4st": 2,
         "5st": 0
       },
-      {
-        "level": 17,
+      "level_17": {
         "spells_known": "",
         "cantrips_known": 4,
         "1st": 4,
@@ -392,8 +377,7 @@
         "4st": 3,
         "5st": 1
       },
-      {
-        "level": 18,
+      "level_18": {
         "spells_known": "",
         "cantrips_known": 4,
         "1st": 4,
@@ -402,8 +386,7 @@
         "4st": 3,
         "5st": 1
       },
-      {
-        "level": 19,
+      "level_19": {
         "spells_known": "",
         "cantrips_known": 4,
         "1st": 4,
@@ -412,8 +395,7 @@
         "4st": 3,
         "5st": 2
       },
-      {
-        "level": 20,
+      "level_20": {
         "spells_known": "",
         "cantrips_known": 4,
         "1st": 4,
@@ -422,7 +404,7 @@
         "4st": 3,
         "5st": 2
       }
-    ],
+    },
     "chose_subclass_level": 3,
     "subclasses": true,
     "subclass_naming": "Спеціальність"
@@ -779,9 +761,10 @@
         "options": []
       }
     ],
-    "spell_slots": [
-      {
-        "level": 1,
+    "spellcasting": true,
+    "spellcasting_level": 1,
+    "spell_slots": {
+      "level_1": {
         "spells_known": 0,
         "cantrips_known": 0,
         "1st": 0,
@@ -790,8 +773,7 @@
         "4st": 0,
         "5st": 0
       },
-      {
-        "level": 2,
+      "level_2": {
         "spells_known": 2,
         "cantrips_known": 0,
         "1st": 2,
@@ -800,8 +782,7 @@
         "4st": 0,
         "5st": 0
       },
-      {
-        "level": 3,
+      "level_3": {
         "spells_known": 3,
         "cantrips_known": 0,
         "1st": 3,
@@ -810,8 +791,7 @@
         "4st": 0,
         "5st": 0
       },
-      {
-        "level": 4,
+      "level_4": {
         "spells_known": 3,
         "cantrips_known": 0,
         "1st": 3,
@@ -820,8 +800,7 @@
         "4st": 0,
         "5st": 0
       },
-      {
-        "level": 5,
+      "level_5": {
         "spells_known": 4,
         "cantrips_known": 0,
         "1st": 4,
@@ -830,8 +809,7 @@
         "4st": 0,
         "5st": 0
       },
-      {
-        "level": 6,
+      "level_6": {
         "spells_known": 4,
         "cantrips_known": 0,
         "1st": 4,
@@ -840,8 +818,7 @@
         "4st": 0,
         "5st": 0
       },
-      {
-        "level": 7,
+      "level_7": {
         "spells_known": 5,
         "cantrips_known": 0,
         "1st": 4,
@@ -850,8 +827,7 @@
         "4st": 0,
         "5st": 0
       },
-      {
-        "level": 8,
+      "level_8": {
         "spells_known": 5,
         "cantrips_known": 0,
         "1st": 4,
@@ -860,8 +836,7 @@
         "4st": 0,
         "5st": 0
       },
-      {
-        "level": 9,
+      "level_9": {
         "spells_known": 6,
         "cantrips_known": 0,
         "1st": 4,
@@ -870,8 +845,7 @@
         "4st": 0,
         "5st": 0
       },
-      {
-        "level": 10,
+      "level_10": {
         "spells_known": 6,
         "cantrips_known": 0,
         "1st": 4,
@@ -880,8 +854,7 @@
         "4st": 0,
         "5st": 0
       },
-      {
-        "level": 11,
+      "level_11": {
         "spells_known": 7,
         "cantrips_known": 0,
         "1st": 4,
@@ -890,8 +863,7 @@
         "4st": 0,
         "5st": 0
       },
-      {
-        "level": 12,
+      "level_12": {
         "spells_known": 7,
         "cantrips_known": 0,
         "1st": 4,
@@ -900,8 +872,7 @@
         "4st": 0,
         "5st": 0
       },
-      {
-        "level": 13,
+      "level_13": {
         "spells_known": 8,
         "cantrips_known": 0,
         "1st": 4,
@@ -910,8 +881,7 @@
         "4st": 1,
         "5st": 0
       },
-      {
-        "level": 14,
+      "level_14": {
         "spells_known": 8,
         "cantrips_known": 0,
         "1st": 4,
@@ -920,8 +890,7 @@
         "4st": 1,
         "5st": 0
       },
-      {
-        "level": 15,
+      "level_15": {
         "spells_known": 9,
         "cantrips_known": 0,
         "1st": 4,
@@ -930,8 +899,7 @@
         "4st": 2,
         "5st": 0
       },
-      {
-        "level": 16,
+      "level_16": {
         "spells_known": 9,
         "cantrips_known": 0,
         "1st": 4,
@@ -940,8 +908,7 @@
         "4st": 2,
         "5st": 0
       },
-      {
-        "level": 17,
+      "level_17": {
         "spells_known": 10,
         "cantrips_known": 0,
         "1st": 4,
@@ -950,8 +917,7 @@
         "4st": 3,
         "5st": 1
       },
-      {
-        "level": 18,
+      "level_18": {
         "spells_known": 10,
         "cantrips_known": 0,
         "1st": 4,
@@ -960,8 +926,7 @@
         "4st": 3,
         "5st": 1
       },
-      {
-        "level": 19,
+      "level_19": {
         "spells_known": 11,
         "cantrips_known": 0,
         "1st": 4,
@@ -970,8 +935,7 @@
         "4st": 3,
         "5st": 2
       },
-      {
-        "level": 20,
+      "level_20": {
         "spells_known": 11,
         "cantrips_known": 0,
         "1st": 4,
@@ -980,7 +944,7 @@
         "4st": 3,
         "5st": 2
       }
-    ],
+    },
     "chose_subclass_level": 3,
     "subclasses": true,
     "subclass_naming": "Архетипи"

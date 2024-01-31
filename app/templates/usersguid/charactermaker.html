@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Site{% endblock %}
+{% block title %}Charactermaker{% endblock %}
 
 {% block content %}
 {% load static %}
@@ -45,17 +45,24 @@
                 {% for d in dice %}
                 <p id="dice_val">{{d}}</p>
                 {% endfor %}
+
               </div>
               <div class="overflow-x-auto">
-                <p>Сила</p> <input type="text" class="dice_input">
-                <p>Спритність</p> <input type="text" class="dice_input">
-                <p>Тілобудлва</p> <input type="text" class="dice_input">
-                <p>Інтелект</p> <input type="text" class="dice_input">
-                <p>Мудрість</p> <input type="text" class="dice_input">
-                <p>Харизма</p> <input type="text" class="dice_input">
+                {{ form.strength.label_tag }}
+                {{ form.strength }}
+                {{ form.dexterity.label_tag }}
+                {{ form.dexterity }}
+                {{ form.constitution.label_tag }}
+                {{ form.constitution }}
+                {{ form.intelligence.label_tag }}
+                {{ form.intelligence }}
+                {{ form.wisdom.label_tag }}
+                {{ form.wisdom }}
+                {{ form.charisma.label_tag }}
+                {{ form.charisma }}
               </div>
+              * впишіть згенеровані значення на ваш розсуд або свої
 
-              * впищіть значення на ваш розсуд
             </div>
 
           </div>
