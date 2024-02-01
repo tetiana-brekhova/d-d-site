@@ -57,3 +57,6 @@ def get_languages(RACE, BACKGROUNDS, TEMP_CHAR):
         else:
             languages["options"].append((language, BACKGROUNDS["languages"][language]["translate"]))
     return languages
+
+
+

@@ -70,12 +70,13 @@ def magic(request):
                   {"section1": section1, "section2": section2})
 
 def class_spells(request, class_id):
+    # add last spell 3 page
     cantrips = [spell for spell in SPELLS["cantrips"] if int(class_id) in spell["class_id"]]
-    first = [spell for spell in SPELLS["1"] if int(class_id) in spell["class_id"]]
+    first = [spell for spell in SPELLS["1st"] if int(class_id) in spell["class_id"]]
     class_name = ""
     for c in CLASSES:
-        if c["class_id"] == int(class_id):
-            class_name = c["class_name"]
+        if CLASSES[c]["class_id"] == int(class_id):
+            class_name = CLASSES[c]["class_name"]
     return render(request, 'usersguid/spells/class_spells.html',
                   {"name": class_name, "cantrips": cantrips, "first": first})
 

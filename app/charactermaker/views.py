@@ -49,6 +49,9 @@ with open(f"{static_data_path}/classes/subclasses.json") as class_file:
 with open(f"{static_data_path}/information/character_pesonality.json") as class_file:
     BACKGROUNDS = json.load(class_file)
 
+with open(f"{static_data_path}/spells/spells.json") as spell_file:
+    SPELLS = json.load(spell_file)
+
 
 def charactermaker(request):
     form = MyForm(request.POST)
@@ -86,26 +89,45 @@ def personality_creation(request):
         subclass = request.POST.get("subclass")
         if CLASSES[TEMP_CHAR["class"]]["spellcasting"]:
             return redirect("charactermaker:spells_chooser")
-        elif subclass and SUBRACES[subclass]["spellcasting"]:
+        elif subclass and SUBRACES[subclass]["spellcasting"] and TEMP_CHAR["level"] > SUBRACES[subclass]["spellcasting_level"]:
             return redirect("charactermaker:spells_chooser")
         else:
-            return redirect("charactermaker:agree_page")
-
-
+            return redirect("charactermaker:confirm_character")
     return render(request, 'usersguid/personality_creation.html', {"start_equipment": equipment,
                                                    "subclasses": subclasses, "ability": ability,
                                                    "personality": personality, "subraces": subraces,
                                                    "languages": languages})
 
+
 def spells_chooser(request):
+    known_spells = 0
+    known_cantrips = CLASSES[TEMP_CHAR["class"]]["spell_slots"]["level_"+TEMP_CHAR["level"]]["cantrips_known"]
+    spells_options = {}
+    if TEMP_CHAR["class"] == "artificer":
+        k_spells = (START_ABILITIES_VALUE["Intelligence"] - 10)//2 + int(TEMP_CHAR["level"])//2
+        if k_spells < 1:
+            known_spells += 1
+        else:
+            known_spells += k_spells
+    else:
+        known_spells += CLASSES[TEMP_CHAR["class"]]["spell_slots"]["level_"+TEMP_CHAR["level"]]["spells_known"]
+    #TODO: add num of subclass known spells
+    the_bigger_level_spell = list(CLASSES[TEMP_CHAR["class"]]["spell_slots"]["level_"+TEMP_CHAR["level"]])[-1]
+    for level in SPELLS:
+        # TODO: add spell id
+
+        spells_options[level] = [spell for spell in SPELLS[level] if int(CLASSES[TEMP_CHAR["class"]]["class_id"]) in spell["class_id"]]
+        if level == the_bigger_level_spell:
+            break
+    if request.method == 'POST':
+        pass
+    print(spells_options)
     return render(request, 'usersguid/spells_chooser.html')
 
 
+def confirm_character(request):
 
-
-def agree_page(request):
-    print(request)
-    return render(request, 'usersguid/agree_page.html')
+    return render(request, 'usersguid/confirm_character.html')
 
 # {% url 'charactermaker:page' race.race_eng_name, subrace.subrace_eng_name%}
 # {% url 'charactermaker:page' class.class_eng_name %}
