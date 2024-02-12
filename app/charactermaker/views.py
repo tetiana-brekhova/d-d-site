@@ -126,7 +126,6 @@ def spells_chooser(request):
 
 
 def confirm_character(request):
-
     return render(request, 'usersguid/confirm_character.html')
 
 # {% url 'charactermaker:page' race.race_eng_name, subrace.subrace_eng_name%}

@@ -9,17 +9,22 @@
   <div class="flex items-center justify-between px-6 py-3">
     <h2 class="section-name text-gray"> Заклинання {{ name }}ів </h2>
     <h4>{% if cantrips %} Заклинання 0-го рівня {% endif %}</h4>
+    <div class="spells-popup">
     {% for spell in cantrips %}
-    <div class="spell-block">
-      <div class="spell_name">
-        <h5>{{ spell.name }}</h5>
+    <!--    <div class="spell-block">-->
+    <!--      <div class="spell_name">-->
+    <!--        <h5>{{ spell.name }}</h5>-->
+    <!--      </div>-->
+    <!--      <div class="spell_description">-->
+    <!--        <p class="spell-p">{{ spell.description }}</p>-->
+    <!--      </div>-->
+    <!--    </div>-->
+      <div class="popup" onclick="myFunction()">{{ spell.name }}
+        <span class="popuptext" id="myPopup">{{ spell.description }}</span>
       </div>
-      <div class="spell_description">
-        <p class="spell-p">{{ spell.description }}</p>
-      </div>
-    </div>
     {% endfor %}
-    
+    </div>
+
     <h4>{% if first %} Заклинання 1-го рівня {% endif %}</h4>
     {% for spell in first %}
     <div class="spell-block">
@@ -31,9 +36,17 @@
       </div>
     </div>
     {% endfor %}
-  
-  
+
+
   </div>
 </div>
+
+
+<script>
+  function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+  }
+</script>
 
 {% endblock %}
