@@ -71,21 +71,21 @@ def magic(request):
 
 def class_spells(request, class_id):
     # add last spell 3 page
+    cantrips = [spell for spell in SPELLS if spell["spell_level"] == 0]
+    first = [spell for spell in SPELLS if spell["spell_level"] == 1]
     if class_id == "0":
-        cantrips = [SPELLS["cantrips"][spell] for spell in SPELLS["cantrips"]]
-        first = [SPELLS["1st"][spell] for spell in SPELLS["1st"]]
         class_name = "всіх клас"
         return render(request, 'usersguid/spells/class_spells.html',
                       {"name": class_name, "cantrips": cantrips, "first": first})
     else:
-        cantrips = [SPELLS["cantrips"][spell] for spell in SPELLS["cantrips"] if int(class_id) in SPELLS["cantrips"][spell]["class_id"]]
-        first = [SPELLS["1st"][spell] for spell in SPELLS["1st"] if int(class_id) in SPELLS["1st"][spell]["class_id"]]
+        class_cantrips = [spell for spell in cantrips if int(class_id) in spell["class_id"]]
+        class_first = [spell for spell in first if int(class_id) in spell["class_id"]]
         class_name = ""
         for c in CLASSES:
             if CLASSES[c]["class_id"] == int(class_id):
                 class_name = CLASSES[c]["class_name"]
         return render(request, 'usersguid/spells/class_spells.html',
-                      {"name": class_name, "cantrips": cantrips, "first": first})
+                      {"name": class_name, "cantrips": class_cantrips, "first": class_first})
 
 
 

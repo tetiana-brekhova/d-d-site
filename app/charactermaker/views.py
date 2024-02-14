@@ -87,9 +87,10 @@ def personality_creation(request):
     languages = get_languages(RACES[TEMP_CHAR["race"]], BACKGROUNDS, TEMP_CHAR)
     if request.method == 'POST':
         subclass = request.POST.get("subclass")
-        if CLASSES[TEMP_CHAR["class"]]["spellcasting"]:
+
+        if CLASSES[TEMP_CHAR["class"]]["spellcasting"] and CLASSES[TEMP_CHAR["class"]]["spellcasting_level"] <= int(TEMP_CHAR["level"]):
             return redirect("charactermaker:spells_chooser")
-        elif subclass and SUBRACES[subclass]["spellcasting"] and TEMP_CHAR["level"] > SUBRACES[subclass]["spellcasting_level"]:
+        elif subclass and SUBRACES[subclass]["spellcasting"] and int(TEMP_CHAR["level"]) >= SUBRACES[subclass]["spellcasting_level"]:
             return redirect("charactermaker:spells_chooser")
         else:
             return redirect("charactermaker:confirm_character")
@@ -100,28 +101,28 @@ def personality_creation(request):
 
 
 def spells_chooser(request):
-    known_spells = 0
-    known_cantrips = CLASSES[TEMP_CHAR["class"]]["spell_slots"]["level_"+TEMP_CHAR["level"]]["cantrips_known"]
-    spells_options = {}
-    if TEMP_CHAR["class"] == "artificer":
-        k_spells = (START_ABILITIES_VALUE["Intelligence"] - 10)//2 + int(TEMP_CHAR["level"])//2
-        if k_spells < 1:
-            known_spells += 1
-        else:
-            known_spells += k_spells
-    else:
-        known_spells += CLASSES[TEMP_CHAR["class"]]["spell_slots"]["level_"+TEMP_CHAR["level"]]["spells_known"]
+    num_known_spells = 0
+    num_known_cantrips = CLASSES[TEMP_CHAR["class"]]["spell_slots"]["level_"+TEMP_CHAR["level"]]["cantrips_known"]
     #TODO: add num of subclass known spells
-    the_bigger_level_spell = list(CLASSES[TEMP_CHAR["class"]]["spell_slots"]["level_"+TEMP_CHAR["level"]])[-1]
-    for level in SPELLS:
-        # TODO: add spell id
 
-        spells_options[level] = [spell for spell in SPELLS[level] if int(CLASSES[TEMP_CHAR["class"]]["class_id"]) in spell["class_id"]]
-        if level == the_bigger_level_spell:
-            break
+    if TEMP_CHAR["class"] == "artificer":
+        k_spells = (int(START_ABILITIES_VALUE["Intelligence"]) - 10)//2 + int(TEMP_CHAR["level"])//2
+        if k_spells < 1:
+            num_known_spells += 1
+        else:
+            num_known_spells += k_spells
+    else:
+        num_known_spells += CLASSES[TEMP_CHAR["class"]]["spell_slots"]["level_"+TEMP_CHAR["level"]]["spells_known"]
+
+    class_spells = [spell for spell in SPELLS if CLASSES[TEMP_CHAR["class"]]["class_id"] in spell["class_id"]]
+    spell_options = []
+    for spell in class_spells:
+        if spell["spell_level"] <= len(CLASSES[TEMP_CHAR["class"]]["spell_slots"]["level_"+TEMP_CHAR["level"]]["spell_slots_per_spell_level"]):
+            spell_options.append(spell)
+
     if request.method == 'POST':
         pass
-    print(spells_options)
+
     return render(request, 'usersguid/spells_chooser.html')
 
 

@@ -59,4 +59,3 @@ def get_languages(RACE, BACKGROUNDS, TEMP_CHAR):
     return languages
 
 
-
